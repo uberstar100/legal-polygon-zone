@@ -1,127 +1,117 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
-    import flash.display.*;
-    import flash.geom.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Camera extends SSF2BaseAPIObject
+//SSF2Camera
+
+package 
+{
+    import flash.display.MovieClip;
+    import flash.geom.Point;
+
+    public class SSF2Camera extends SSF2BaseAPIObject 
     {
 
-        public function SSF2Camera(param1) : void
+        public function SSF2Camera(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Camera";
-        }// end function
+            return ("SSF2Camera");
+        }
 
-        public function getCameraParameter(param1:String)
+        public function getCameraParameter(_arg_1:String):*
         {
-            return _api.getCameraParameter(param1);
-        }// end function
+            return (_api.getCameraParameter(_arg_1));
+        }
 
-        public function updateCameraParameters(param1:Object) : void
+        public function updateCameraParameters(_arg_1:Object):void
         {
-            _api.updateCameraParameters(param1);
-            return;
-        }// end function
+            _api.updateCameraParameters(_arg_1);
+        }
 
-        public function addTarget(param1:MovieClip) : void
+        public function addTarget(_arg_1:MovieClip):void
         {
-            _api.addTarget(param1);
-            return;
-        }// end function
+            _api.addTarget(_arg_1);
+        }
 
-        public function deleteTarget(param1:MovieClip) : void
+        public function deleteTarget(_arg_1:MovieClip):void
         {
-            _api.deleteTarget(param1);
-            return;
-        }// end function
+            _api.deleteTarget(_arg_1);
+        }
 
-        public function getTopLeftPoint() : Point
+        public function getTopLeftPoint():Point
         {
-            return _api.getTopLeftPoint();
-        }// end function
+            return (_api.getTopLeftPoint());
+        }
 
-        public function getMC() : MovieClip
+        public function getMC():MovieClip
         {
-            return _api.getMC();
-        }// end function
+            return (_api.getMC());
+        }
 
-        public function darken() : void
+        public function darken():void
         {
             _api.darken();
-            return;
-        }// end function
+        }
 
-        public function killDarkener(param1:Boolean = false) : void
+        public function killDarkener(_arg_1:Boolean=false):void
         {
-            _api.killDarkener(param1);
-            return;
-        }// end function
+            _api.killDarkener(_arg_1);
+        }
 
-        public function addTimedTarget(param1:MovieClip, param2:int) : void
+        public function addTimedTarget(_arg_1:MovieClip, _arg_2:int):void
         {
-            _api.addTimedCameraTarget(param1, param2);
-            return;
-        }// end function
+            _api.addTimedCameraTarget(_arg_1, _arg_2);
+        }
 
-        public function deleteTimedCameraTarget(param1:MovieClip) : void
+        public function deleteTimedCameraTarget(_arg_1:MovieClip):void
         {
-            _api.deleteTimedCameraTarget(param1);
-            return;
-        }// end function
+            _api.deleteTimedCameraTarget(_arg_1);
+        }
 
-        public function addTimedTargetPoint(param1:Point, param2:int) : void
+        public function addTimedTargetPoint(_arg_1:Point, _arg_2:int):void
         {
-            _api.addTimedTargetPoint(param1, param2);
-            return;
-        }// end function
+            _api.addTimedTargetPoint(_arg_1, _arg_2);
+        }
 
-        public function deleteTimedTargetPoint(param1:Point) : void
+        public function deleteTimedTargetPoint(_arg_1:Point):void
         {
-            _api.deleteTimedTargetPoint(param1);
-            return;
-        }// end function
+            _api.deleteTimedTargetPoint(_arg_1);
+        }
 
-        public function addForcedTarget(param1:MovieClip) : void
+        public function addForcedTarget(_arg_1:MovieClip):void
         {
-            _api.addForcedTarget(param1);
-            return;
-        }// end function
+            _api.addForcedTarget(_arg_1);
+        }
 
-        public function deleteForcedTarget(param1:MovieClip) : void
+        public function deleteForcedTarget(_arg_1:MovieClip):void
         {
-            _api.deleteForcedTarget(param1);
-            return;
-        }// end function
+            _api.deleteForcedTarget(_arg_1);
+        }
 
-        public function lightFlash(param1:Boolean = true) : void
+        public function lightFlash(_arg_1:Boolean=true):void
         {
-            _api.lightFlash(param1);
-            return;
-        }// end function
+            _api.lightFlash(_arg_1);
+        }
 
-        public function setStageFocus(param1:int) : void
+        public function setStageFocus(_arg_1:int):void
         {
-            _api.setStageFocus(param1);
-            return;
-        }// end function
+            _api.setStageFocus(_arg_1);
+        }
 
-        public function removeStageFocus() : void
+        public function removeStageFocus():void
         {
             _api.removeStageFocus();
-            return;
-        }// end function
+        }
 
-        public function shake(param1:int) : void
+        public function shake(_arg_1:int):void
         {
-            _api.shake(param1);
-            return;
-        }// end function
+            _api.shake(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

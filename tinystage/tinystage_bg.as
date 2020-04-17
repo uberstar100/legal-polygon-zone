@@ -1,14 +1,16 @@
-﻿package 
-{
-    import flash.display.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    dynamic public class tinystage_bg extends MovieClip
+//tinystage_bg
+
+package 
+{
+    import flash.display.MovieClip;
+
+    public dynamic class tinystage_bg extends MovieClip 
     {
 
-        public function tinystage_bg()
-        {
-            return;
-        }// end function
 
     }
-}
+}//package 
+

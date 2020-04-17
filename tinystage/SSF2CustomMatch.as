@@ -1,32 +1,37 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2CustomMatch extends SSF2BaseAPIObject
+//SSF2CustomMatch
+
+package 
+{
+    public class SSF2CustomMatch extends SSF2BaseAPIObject 
     {
+
         public var matchData:Object;
 
-        public function SSF2CustomMatch(param1) : void
+        public function SSF2CustomMatch(_arg_1:*):void
         {
-            super(param1);
+            super(_arg_1);
             matchData = {};
-            return;
-        }// end function
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2CustomMatch";
-        }// end function
+            return ("SSF2CustomMatch");
+        }
 
-        public function getGameSettings() : Object
+        public function getGameSettings():Object
         {
-            return _api.getGameSettings();
-        }// end function
+            return (_api.getGameSettings());
+        }
 
-        public function matchSetup(param1:Object) : Object
+        public function matchSetup(_arg_1:Object):Object
         {
-            return param1;
-        }// end function
+            return (_arg_1);
+        }
+
 
     }
-}
+}//package 
+

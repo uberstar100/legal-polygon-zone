@@ -1,19 +1,24 @@
-﻿package 
-{
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Beacon extends SSF2GameObject
+//SSF2Beacon
+
+package 
+{
+    public class SSF2Beacon extends SSF2GameObject 
     {
 
-        public function SSF2Beacon(param1) : void
+        public function SSF2Beacon(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Beacon";
-        }// end function
+            return ("SSF2Beacon");
+        }
+
 
     }
-}
+}//package 
+

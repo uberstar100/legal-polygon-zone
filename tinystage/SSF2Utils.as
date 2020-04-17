@@ -1,479 +1,459 @@
-﻿package 
-{
-    import fl.motion.*;
-    import flash.display.*;
-    import flash.filters.*;
-    import flash.geom.*;
-    import flash.utils.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Utils extends Object
+//SSF2Utils
+
+package 
+{
+    import flash.geom.Rectangle;
+    import flash.geom.Point;
+    import flash.display.MovieClip;
+    import flash.geom.ColorTransform;
+    import flash.display.DisplayObject;
+    import fl.motion.AdjustColor;
+    import flash.filters.ColorMatrixFilter;
+    import flash.display.Bitmap;
+    import flash.utils.Dictionary;
+    import flash.display.BitmapData;
+
+    public class SSF2Utils 
     {
+
         private static var paletteRect:Rectangle = new Rectangle();
         private static var palettePoint:Point = new Point();
 
-        public function SSF2Utils()
-        {
-            return;
-        }// end function
 
-        public static function toRadians(param1:Number) : Number
+        public static function toRadians(_arg_1:Number):Number
         {
-            return param1 * (3.14159 / 180);
-        }// end function
+            return (_arg_1 * (3.14159265358979 / 180));
+        }
 
-        public static function toDegrees(param1:Number) : Number
+        public static function toDegrees(_arg_1:Number):Number
         {
-            return param1 * (180 / 3.14159);
-        }// end function
+            return (_arg_1 * (180 / 3.14159265358979));
+        }
 
-        public static function getDistance(param1:Point, param2:Point) : Number
+        public static function getDistance(_arg_1:Point, _arg_2:Point):Number
         {
-            if (param1 == null || param2 == null)
+            if (((_arg_1 == null) || (_arg_2 == null)))
             {
-                return 0;
-            }
-            return Math.sqrt(Math.pow(param1.x - param2.x, 2) + Math.pow(param1.y - param2.y, 2));
-        }// end function
+                return (0);
+            };
+            return (Math.sqrt((Math.pow((_arg_1.x - _arg_2.x), 2) + Math.pow((_arg_1.y - _arg_2.y), 2))));
+        }
 
-        public static function calculateXSpeed(param1:Number, param2:Number) : Number
+        public static function calculateXSpeed(_arg_1:Number, _arg_2:Number):Number
         {
-            return param1 * Math.cos(param2 * 3.14159 / 180);
-        }// end function
+            return (_arg_1 * Math.cos(((_arg_2 * 3.14159265358979) / 180)));
+        }
 
-        public static function calculateYSpeed(param1:Number, param2:Number) : Number
+        public static function calculateYSpeed(_arg_1:Number, _arg_2:Number):Number
         {
-            return param1 * Math.sin(param2 * 3.14159 / 180);
-        }// end function
+            return (_arg_1 * Math.sin(((_arg_2 * 3.14159265358979) / 180)));
+        }
 
-        public static function calculateSpeed(param1:Number, param2:Number) : Number
+        public static function calculateSpeed(_arg_1:Number, _arg_2:Number):Number
         {
-            return Math.sqrt(Math.pow(param1, 2) + Math.pow(param2, 2));
-        }// end function
+            return (Math.sqrt((Math.pow(_arg_1, 2) + Math.pow(_arg_2, 2))));
+        }
 
-        public static function forceBase360(param1:Number) : Number
+        public static function forceBase360(_arg_1:Number):Number
         {
-            while (param1 < 0)
+            while (_arg_1 < 0)
             {
-                
-                param1 = param1 + 360;
-            }
-            while (param1 >= 360)
+                _arg_1 = (_arg_1 + 360);
+            };
+            while (_arg_1 >= 360)
             {
-                
-                param1 = param1 - 360;
-            }
-            return param1;
-        }// end function
+                _arg_1 = (_arg_1 - 360);
+            };
+            return (_arg_1);
+        }
 
-        public static function calculateDifferenceBetweenAngles(param1:Number, param2:Number) : Number
+        public static function calculateDifferenceBetweenAngles(_arg_1:Number, _arg_2:Number):Number
         {
-            var _loc_3:* = param2 - param1;
-            while (_loc_3 < -180)
+            var _local_3:Number = (_arg_2 - _arg_1);
+            while (_local_3 < -180)
             {
-                
-                _loc_3 = _loc_3 + 360;
-            }
-            while (_loc_3 > 180)
+                _local_3 = (_local_3 + 360);
+            };
+            while (_local_3 > 180)
             {
-                
-                _loc_3 = _loc_3 - 360;
-            }
-            return _loc_3;
-        }// end function
+                _local_3 = (_local_3 - 360);
+            };
+            return (_local_3);
+        }
 
-        public static function getVelocityVector(param1:Number, param2:Number) : Point
+        public static function getVelocityVector(_arg_1:Number, _arg_2:Number):Point
         {
-            var _loc_3:* = new Point();
-            _loc_3.x = param1 * Math.cos(param2 * 3.14159 / 180);
-            _loc_3.y = param1 * Math.sin(param2 * 3.14159 / 180);
-            return _loc_3;
-        }// end function
+            var _local_3:Point = new Point();
+            _local_3.x = (_arg_1 * Math.cos(((_arg_2 * 3.14159265358979) / 180)));
+            _local_3.y = (_arg_1 * Math.sin(((_arg_2 * 3.14159265358979) / 180)));
+            return (_local_3);
+        }
 
-        public static function getAngleBetween(param1:Point, param2:Point) : Number
+        public static function getAngleBetween(_arg_1:Point, _arg_2:Point):Number
         {
-            return SSF2Utils.forceBase360(Math.atan2(-(param2.y - param1.y), param2.x - param1.x) * 180 / 3.14159);
-        }// end function
+            return (SSF2Utils.forceBase360(((Math.atan2(-(_arg_2.y - _arg_1.y), (_arg_2.x - _arg_1.x)) * 180) / 3.14159265358979)));
+        }
 
-        public static function safeGotoAndStop(param1:MovieClip, param2) : void
+        public static function safeGotoAndStop(_arg_1:MovieClip, _arg_2:*):void
         {
-            var _loc_3:* = 0;
-            if (param2 is int || param2 is Number)
+            var _local_3:int;
+            if (((_arg_2 is int) || (_arg_2 is Number)))
             {
-                if (param2 <= param1.totalFrames)
+                if ((_arg_2 <= _arg_1.totalFrames))
                 {
-                    param1.gotoAndStop(param2);
-                }
-            }
-            else if (param2 is String)
-            {
-                _loc_3 = 0;
-                while (_loc_3 < param1.currentLabels.length)
-                {
-                    
-                    if (param1.currentLabels[_loc_3].name == param2)
-                    {
-                        param1.gotoAndStop(param2);
-                        break;
-                    }
-                    _loc_3++;
-                }
-            }
-            return;
-        }// end function
-
-        public static function setTint(param1:DisplayObject, param2:Number, param3:Number, param4:Number, param5:Number, param6:Number, param7:Number, param8:Number, param9:Number) : void
-        {
-            var _loc_10:* = new ColorTransform();
-            _loc_10.redMultiplier = param2;
-            _loc_10.greenMultiplier = param3;
-            _loc_10.blueMultiplier = param4;
-            _loc_10.alphaMultiplier = param5;
-            _loc_10.redOffset = param6;
-            _loc_10.greenOffset = param7;
-            _loc_10.blueOffset = param8;
-            _loc_10.alphaOffset = param9;
-            param1.transform.colorTransform = _loc_10;
-            return;
-        }// end function
-
-        public static function rotateRectangleAroundOrigin(param1:Rectangle, param2:Number) : Rectangle
-        {
-            var _loc_15:* = param1.clone();
-            var _loc_12:* = null;
-            var _loc_13:* = null;
-            var _loc_14:* = null;
-            var _loc_11:* = null;
-            var _loc_17:* = 0;
-            var _loc_16:* = 0;
-            var _loc_10:* = 0;
-            var _loc_9:* = 0;
-            var _loc_18:* = 0;
-            var _loc_19:* = 0;
-            var _loc_7:* = 0;
-            var _loc_8:* = 0;
-            var _loc_6:* = 0;
-            var _loc_5:* = 0;
-            var _loc_4:* = 0;
-            var _loc_3:* = 0;
-            if (param2 != 0)
-            {
-                _loc_12 = new Point(_loc_15.x, _loc_15.y);
-                _loc_13 = new Point(_loc_15.x + _loc_15.width, _loc_15.y);
-                _loc_14 = new Point(_loc_15.x + _loc_15.width, _loc_15.y + _loc_15.height);
-                _loc_11 = new Point(_loc_15.x, _loc_15.y + _loc_15.height);
-                _loc_18 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _loc_12));
-                _loc_19 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _loc_13));
-                _loc_7 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _loc_14));
-                _loc_8 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _loc_11));
-                _loc_6 = Point.distance(new Point(), _loc_12);
-                _loc_5 = Point.distance(new Point(), _loc_13);
-                _loc_4 = Point.distance(new Point(), _loc_14);
-                _loc_3 = Point.distance(new Point(), _loc_11);
-                _loc_12 = Point.polar(_loc_6, _loc_18 + SSF2Utils.toRadians(param2));
-                _loc_13 = Point.polar(_loc_5, _loc_19 + SSF2Utils.toRadians(param2));
-                _loc_14 = Point.polar(_loc_4, _loc_7 + SSF2Utils.toRadians(param2));
-                _loc_11 = Point.polar(_loc_3, _loc_8 + SSF2Utils.toRadians(param2));
-                _loc_12.y = _loc_12.y * -1;
-                _loc_13.y = _loc_13.y * -1;
-                _loc_14.y = _loc_14.y * -1;
-                _loc_11.y = _loc_11.y * -1;
-                _loc_17 = Math.min(_loc_12.x, _loc_13.x, _loc_14.x, _loc_11.x);
-                _loc_16 = Math.min(_loc_12.y, _loc_13.y, _loc_14.y, _loc_11.y);
-                _loc_10 = Math.max(_loc_12.x, _loc_13.x, _loc_14.x, _loc_11.x);
-                _loc_9 = Math.max(_loc_12.y, _loc_13.y, _loc_14.y, _loc_11.y);
-                _loc_15.x = _loc_17;
-                _loc_15.y = _loc_16;
-                _loc_15.width = _loc_10 - _loc_17;
-                _loc_15.height = _loc_9 - _loc_16;
-            }
-            return _loc_15;
-        }// end function
-
-        public static function cast(param1, param2:Class = null)
-        {
-            var _loc_3:* = null;
-            if (!param1)
-            {
-                return null;
-            }
-            if (!param2 && (param1 is SSF2Character || param1 is SSF2Projectile || param1 is SSF2Item || param1 is SSF2Enemy || param1 is SSF2Stage || param1 is SSF2Platform || param1 is SSF2CollisionBoundary || param1 is SSF2Camera || param1 is SSF2GameTimer || param1 is SSF2Target))
-            {
-                return param1;
-            }
-            if (param2)
-            {
-                _loc_3 = new param2(param1.$ext.getAPI());
+                    _arg_1.gotoAndStop(_arg_2);
+                };
             }
             else
             {
-                var _loc_4:* = param1.getType();
-                while (_loc_4 === "SSF2Character")
+                if ((_arg_2 is String))
                 {
-                    
-                    _loc_3 = new SSF2Character(param1.$ext.getAPI());
-                    do
+                    _local_3 = 0;
+                    while (_local_3 < _arg_1.currentLabels.length)
                     {
-                        
-                        _loc_3 = new SSF2Projectile(param1.$ext.getAPI());
-                        do
+                        if ((_arg_1.currentLabels[_local_3].name == _arg_2))
                         {
-                            
-                            _loc_3 = new SSF2Item(param1.$ext.getAPI());
-                            do
-                            {
-                                
-                                _loc_3 = new SSF2Enemy(param1.$ext.getAPI());
-                                do
-                                {
-                                    
-                                    _loc_3 = new SSF2Stage(param1.$ext.getAPI());
-                                    do
-                                    {
-                                        
-                                        _loc_3 = new SSF2Platform(param1.$ext.getAPI());
-                                        do
-                                        {
-                                            
-                                            _loc_3 = new SSF2CollisionBoundary(param1.$ext.getAPI());
-                                            do
-                                            {
-                                                
-                                                _loc_3 = new SSF2Camera(param1.$ext.getAPI());
-                                                do
-                                                {
-                                                    
-                                                    _loc_3 = new SSF2GameTimer(param1.$ext.getAPI());
-                                                    do
-                                                    {
-                                                        
-                                                        _loc_3 = new SSF2Target(param1.$ext.getAPI());
-                                                        break;
-                                                    }
-                                                }while (_loc_4 === "SSF2Projectile")
-                                            }while (_loc_4 === "SSF2Item")
-                                        }while (_loc_4 === "SSF2Enemy")
-                                    }while (_loc_4 === "SSF2Stage")
-                                }while (_loc_4 === "SSF2Platform")
-                            }while (_loc_4 === "SSF2CollisionBoundary")
-                        }while (_loc_4 === "SSF2Camera")
-                    }while (_loc_4 === "SSF2GameTimer")
-                }while (_loc_4 === "SSF2Target")
-            }
-            return _loc_3;
-        }// end function
+                            _arg_1.gotoAndStop(_arg_2);
+                            return;
+                        };
+                        _local_3++;
+                    };
+                };
+            };
+        }
 
-        private static function cloneObject(param1:Object) : Object
+        public static function setTint(_arg_1:DisplayObject, _arg_2:Number, _arg_3:Number, _arg_4:Number, _arg_5:Number, _arg_6:Number, _arg_7:Number, _arg_8:Number, _arg_9:Number):void
         {
-            return JSON.parse(JSON.stringify(param1));
-        }// end function
+            var _local_10:ColorTransform = new ColorTransform();
+            _local_10.redMultiplier = _arg_2;
+            _local_10.greenMultiplier = _arg_3;
+            _local_10.blueMultiplier = _arg_4;
+            _local_10.alphaMultiplier = _arg_5;
+            _local_10.redOffset = _arg_6;
+            _local_10.greenOffset = _arg_7;
+            _local_10.blueOffset = _arg_8;
+            _local_10.alphaOffset = _arg_9;
+            _arg_1.transform.colorTransform = _local_10;
+        }
 
-        private static function getCostumeObject(param1:Object = null) : Object
+        public static function rotateRectangleAroundOrigin(_arg_1:Rectangle, _arg_2:Number):Rectangle
         {
-            param1 = param1 ? (SSF2Utils.cloneObject(param1)) : ({});
-            var _loc_2:* = {};
-            _loc_2.hue = 0;
-            _loc_2.saturation = 0;
-            _loc_2.brightness = 0;
-            _loc_2.contrast = 0;
-            _loc_2.redMultiplier = 1;
-            _loc_2.greenMultiplier = 1;
-            _loc_2.blueMultiplier = 1;
-            _loc_2.alphaMultiplier = 1;
-            _loc_2.redOffset = 0;
-            _loc_2.greenOffset = 0;
-            _loc_2.blueOffset = 0;
-            _loc_2.alphaOffset = 0;
-            for (_loc_3 in _loc_2)
+            var _local_15:Rectangle = _arg_1.clone();
+            var _local_12:Point;
+            var _local_13:Point;
+            var _local_14:Point;
+            var _local_11:Point;
+            var _local_17:* = 0;
+            var _local_16:* = 0;
+            var _local_10:* = 0;
+            var _local_9:* = 0;
+            var _local_18:* = 0;
+            var _local_19:* = 0;
+            var _local_7:* = 0;
+            var _local_8:* = 0;
+            var _local_6:* = 0;
+            var _local_5:* = 0;
+            var _local_4:* = 0;
+            var _local_3:* = 0;
+            if (_arg_2 != 0)
             {
-                
-                if (param1[_loc_3] === undefined)
+                _local_12 = new Point(_local_15.x, _local_15.y);
+                _local_13 = new Point((_local_15.x + _local_15.width), _local_15.y);
+                _local_14 = new Point((_local_15.x + _local_15.width), (_local_15.y + _local_15.height));
+                _local_11 = new Point(_local_15.x, (_local_15.y + _local_15.height));
+                _local_18 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _local_12));
+                _local_19 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _local_13));
+                _local_7 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _local_14));
+                _local_8 = SSF2Utils.toRadians(SSF2Utils.getAngleBetween(new Point(), _local_11));
+                _local_6 = Point.distance(new Point(), _local_12);
+                _local_5 = Point.distance(new Point(), _local_13);
+                _local_4 = Point.distance(new Point(), _local_14);
+                _local_3 = Point.distance(new Point(), _local_11);
+                _local_12 = Point.polar(_local_6, (_local_18 + SSF2Utils.toRadians(_arg_2)));
+                _local_13 = Point.polar(_local_5, (_local_19 + SSF2Utils.toRadians(_arg_2)));
+                _local_14 = Point.polar(_local_4, (_local_7 + SSF2Utils.toRadians(_arg_2)));
+                _local_11 = Point.polar(_local_3, (_local_8 + SSF2Utils.toRadians(_arg_2)));
+                _local_12.y = (_local_12.y * -1);
+                _local_13.y = (_local_13.y * -1);
+                _local_14.y = (_local_14.y * -1);
+                _local_11.y = (_local_11.y * -1);
+                _local_17 = Math.min(_local_12.x, _local_13.x, _local_14.x, _local_11.x);
+                _local_16 = Math.min(_local_12.y, _local_13.y, _local_14.y, _local_11.y);
+                _local_10 = Math.max(_local_12.x, _local_13.x, _local_14.x, _local_11.x);
+                _local_9 = Math.max(_local_12.y, _local_13.y, _local_14.y, _local_11.y);
+                _local_15.x = _local_17;
+                _local_15.y = _local_16;
+                _local_15.width = (_local_10 - _local_17);
+                _local_15.height = (_local_9 - _local_16);
+            };
+            return (_local_15);
+        }
+
+        public static function cast(_arg_1:*, _arg_2:Class=null):*
+        {
+            var _local_3:* = null;
+            if (!_arg_1)
+            {
+                return (null);
+            };
+            if (((!(_arg_2)) && ((((((((((_arg_1 is SSF2Character) || (_arg_1 is SSF2Projectile)) || (_arg_1 is SSF2Item)) || (_arg_1 is SSF2Enemy)) || (_arg_1 is SSF2Stage)) || (_arg_1 is SSF2Platform)) || (_arg_1 is SSF2CollisionBoundary)) || (_arg_1 is SSF2Camera)) || (_arg_1 is SSF2GameTimer)) || (_arg_1 is SSF2Target))))
+            {
+                return (_arg_1);
+            };
+            if (_arg_2)
+            {
+                _local_3 = new _arg_2(_arg_1.$ext.getAPI());
+            }
+            else
+            {
+                switch (_arg_1.getType())
                 {
-                    param1[_loc_3] = _loc_2[_loc_3];
-                }
-            }
-            return param1;
-        }// end function
+                    case "SSF2Character":
+                        _local_3 = new SSF2Character(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Projectile":
+                        _local_3 = new SSF2Projectile(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Item":
+                        _local_3 = new SSF2Item(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Enemy":
+                        _local_3 = new SSF2Enemy(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Stage":
+                        _local_3 = new SSF2Stage(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Platform":
+                        _local_3 = new SSF2Platform(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2CollisionBoundary":
+                        _local_3 = new SSF2CollisionBoundary(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Camera":
+                        _local_3 = new SSF2Camera(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2GameTimer":
+                        _local_3 = new SSF2GameTimer(_arg_1.$ext.getAPI());
+                        break;
+                    case "SSF2Target":
+                        _local_3 = new SSF2Target(_arg_1.$ext.getAPI());
+                };
+            };
+            return (_local_3);
+        }
 
-        public static function setColorFilters(param1:DisplayObject, param2:Object) : void
+        private static function cloneObject(_arg_1:Object):Object
         {
-            var _loc_5:* = null;
-            var _loc_4:* = null;
-            if (!param2)
+            return (JSON.parse(JSON.stringify(_arg_1)));
+        }
+
+        private static function getCostumeObject(_arg_1:Object=null):Object
+        {
+            _arg_1 = ((_arg_1) ? SSF2Utils.cloneObject(_arg_1) : {});
+            var _local_2:Object = {};
+            _local_2.hue = 0;
+            _local_2.saturation = 0;
+            _local_2.brightness = 0;
+            _local_2.contrast = 0;
+            _local_2.redMultiplier = 1;
+            _local_2.greenMultiplier = 1;
+            _local_2.blueMultiplier = 1;
+            _local_2.alphaMultiplier = 1;
+            _local_2.redOffset = 0;
+            _local_2.greenOffset = 0;
+            _local_2.blueOffset = 0;
+            _local_2.alphaOffset = 0;
+            for (var _local_3:* in _local_2)
             {
-                param1.filters = null;
+                if ((_arg_1[_local_3] === undefined))
+                {
+                    _arg_1[_local_3] = _local_2[_local_3];
+                };
+            };
+            return (_arg_1);
+        }
+
+        public static function setColorFilters(_arg_1:DisplayObject, _arg_2:Object):void
+        {
+            var _local_5:* = null;
+            var _local_4:* = null;
+            if (!_arg_2)
+            {
+                _arg_1.filters = null;
                 return;
-            }
-            param2 = SSF2Utils.getCostumeObject(param2);
-            var _loc_3:* = [];
-            if (!(param2.hue == 0 && param2.saturation == 0 && param2.brightness == 0 && param2.contrast == 0))
+            };
+            _arg_2 = SSF2Utils.getCostumeObject(_arg_2);
+            var _local_3:Array = [];
+            if (!((((_arg_2.hue == 0) && (_arg_2.saturation == 0)) && (_arg_2.brightness == 0)) && (_arg_2.contrast == 0)))
             {
-                _loc_5 = new AdjustColor();
-                _loc_5.hue = param2.hue || 0;
-                _loc_5.saturation = param2.saturation || 0;
-                _loc_5.brightness = param2.brightness || 0;
-                _loc_5.contrast = param2.contrast || 0;
-                _loc_3.push(new ColorMatrixFilter(_loc_5.CalculateFinalFlatArray()));
-            }
-            if (!(param2.redMultiplier == 1 && param2.greenMultiplier == 1 && param2.blueMultiplier == 1 && param2.alphaMultiplier == 1 && param2.redOffset == 0 && param2.greenOffset == 0 && param2.blueOffset == 0 && param2.alphaOffset == 0))
+                _local_5 = new AdjustColor();
+                _local_5.hue = ((_arg_2.hue) || (0));
+                _local_5.saturation = ((_arg_2.saturation) || (0));
+                _local_5.brightness = ((_arg_2.brightness) || (0));
+                _local_5.contrast = ((_arg_2.contrast) || (0));
+                _local_3.push(new ColorMatrixFilter(_local_5.CalculateFinalFlatArray()));
+            };
+            if (!((((((((_arg_2.redMultiplier == 1) && (_arg_2.greenMultiplier == 1)) && (_arg_2.blueMultiplier == 1)) && (_arg_2.alphaMultiplier == 1)) && (_arg_2.redOffset == 0)) && (_arg_2.greenOffset == 0)) && (_arg_2.blueOffset == 0)) && (_arg_2.alphaOffset == 0)))
             {
-                _loc_4 = [];
-                _loc_4 = _loc_4.concat([param2.redMultiplier || 1, 0, 0, 0, param2.redOffset || 0]);
-                _loc_4 = _loc_4.concat([0, param2.greenMultiplier || 1, 0, 0, param2.greenOffset || 0]);
-                _loc_4 = _loc_4.concat([0, 0, param2.blueMultiplier || 1, 0, param2.blueOffset || 0]);
-                _loc_4 = _loc_4.concat([0, 0, 0, param2.alphaMultiplier || 1, param2.alphaOffset || 0]);
-                _loc_3.push(new ColorMatrixFilter(_loc_4));
-            }
-            param1.filters = _loc_3;
-            return;
-        }// end function
+                _local_4 = [];
+                _local_4 = _local_4.concat([((_arg_2.redMultiplier) || (1)), 0, 0, 0, ((_arg_2.redOffset) || (0))]);
+                _local_4 = _local_4.concat([0, ((_arg_2.greenMultiplier) || (1)), 0, 0, ((_arg_2.greenOffset) || (0))]);
+                _local_4 = _local_4.concat([0, 0, ((_arg_2.blueMultiplier) || (1)), 0, ((_arg_2.blueOffset) || (0))]);
+                _local_4 = _local_4.concat([0, 0, 0, ((_arg_2.alphaMultiplier) || (1)), ((_arg_2.alphaOffset) || (0))]);
+                _local_3.push(new ColorMatrixFilter(_local_4));
+            };
+            _arg_1.filters = _local_3;
+        }
 
-        public static function replacePalette(param1:MovieClip, param2:Object, param3:int = 1, param4:Boolean = false, param5:Boolean = false) : void
+        public static function replacePalette(_arg_1:MovieClip, _arg_2:Object, _arg_3:int=1, _arg_4:Boolean=false, _arg_5:Boolean=false):void
         {
-            var _loc_7:* = 0;
-            var _loc_6:* = null;
-            if ((param2 || param4) && param1)
+            var _local_7:int;
+            var _local_6:* = null;
+            if ((((_arg_2) || (_arg_4)) && (_arg_1)))
             {
-                _loc_7 = 0;
-                _loc_6 = null;
-                _loc_7 = 0;
-                while (_loc_7 < param1.numChildren)
+                _local_7 = 0;
+                _local_6 = null;
+                _local_7 = 0;
+                while (_local_7 < _arg_1.numChildren)
                 {
-                    
-                    if (param1.getChildAt(_loc_7) is Bitmap)
+                    if ((_arg_1.getChildAt(_local_7) is Bitmap))
                     {
-                        _loc_6 = param1.getChildAt(_loc_7) as Bitmap;
-                        if (param4)
+                        _local_6 = (_arg_1.getChildAt(_local_7) as Bitmap);
+                        if (_arg_4)
                         {
-                            if (!param1.__cachedPalette || !param1.__cachedPalette[_loc_6.bitmapData])
+                            if (((!(_arg_1.__cachedPalette)) || (!(_arg_1.__cachedPalette[_local_6.bitmapData]))))
                             {
-                                param1.__cachedPalette = param1.__cachedPalette || new Dictionary(true);
-                                param1.__cachedPalette[_loc_6.bitmapData] = _loc_6.bitmapData.clone();
+                                _arg_1.__cachedPalette = ((_arg_1.__cachedPalette) || (new Dictionary(true)));
+                                _arg_1.__cachedPalette[_local_6.bitmapData] = _local_6.bitmapData.clone();
                             }
                             else
                             {
-                                _loc_6.bitmapData.draw(param1.__cachedPalette[_loc_6.bitmapData]);
-                            }
-                        }
-                        if (param2)
+                                _local_6.bitmapData.draw(_arg_1.__cachedPalette[_local_6.bitmapData]);
+                            };
+                        };
+                        if (_arg_2)
                         {
-                            SSF2Utils.replacePaletteHelper(_loc_6.bitmapData, param2);
-                        }
-                        _loc_6.smoothing = param5;
+                            SSF2Utils.replacePaletteHelper(_local_6.bitmapData, _arg_2);
+                        };
+                        _local_6.smoothing = _arg_5;
                     }
-                    else if (param1.getChildAt(_loc_7) is MovieClip && param3 > 0)
+                    else
                     {
-                        SSF2Utils.replacePalette(param1.getChildAt(_loc_7) as MovieClip, param2, (param3 - 1), param4, param5);
-                    }
-                    _loc_7++;
-                }
-            }
-            return;
-        }// end function
+                        if (((_arg_1.getChildAt(_local_7) is MovieClip) && (_arg_3 > 0)))
+                        {
+                            SSF2Utils.replacePalette((_arg_1.getChildAt(_local_7) as MovieClip), _arg_2, (_arg_3 - 1), _arg_4, _arg_5);
+                        };
+                    };
+                    _local_7++;
+                };
+            };
+        }
 
-        private static function replacePaletteHelper(param1:BitmapData, param2:Object) : void
+        private static function replacePaletteHelper(_arg_1:BitmapData, _arg_2:Object):void
         {
-            var _loc_3:* = 0;
-            SSF2Utils.paletteRect.width = param1.width;
-            SSF2Utils.paletteRect.height = param1.height;
-            _loc_3 = 0;
-            while (_loc_3 < param2.colors.length)
+            var _local_3:int;
+            SSF2Utils.paletteRect.width = _arg_1.width;
+            SSF2Utils.paletteRect.height = _arg_1.height;
+            _local_3 = 0;
+            while (_local_3 < _arg_2.colors.length)
             {
-                
-                if (param2.colors[_loc_3] != param2.replacements[_loc_3])
+                if (_arg_2.colors[_local_3] != _arg_2.replacements[_local_3])
                 {
-                    param1.threshold(param1, SSF2Utils.paletteRect, SSF2Utils.palettePoint, "==", param2.colors[_loc_3], param2.replacements[_loc_3], 4294967295, true);
-                }
-                _loc_3++;
-            }
-            return;
-        }// end function
+                    _arg_1.threshold(_arg_1, SSF2Utils.paletteRect, SSF2Utils.palettePoint, "==", _arg_2.colors[_local_3], _arg_2.replacements[_local_3], 0xFFFFFFFF, true);
+                };
+                _local_3++;
+            };
+        }
 
-        public static function decel(param1:Number, param2:Number) : Number
+        public static function decel(_arg_1:Number, _arg_2:Number):Number
         {
-            var _loc_3:* = false;
-            if (param1 == 0)
+            var _local_3:Boolean;
+            if ((_arg_1 == 0))
             {
-                return 0;
-            }
-            if (param2 >= 0)
+                return (0);
+            };
+            if ((_arg_2 >= 0))
             {
-                param1 = param1 * param2;
+                _arg_1 = (_arg_1 * _arg_2);
             }
             else
             {
-                _loc_3 = param1 > 0;
-                param1 = param1 - (param1 > 0 ? (Math.abs(param2)) : (-Math.abs(param2)));
-                if (_loc_3 && param1 < 0 || !_loc_3 && param1 > 0)
+                _local_3 = (_arg_1 > 0);
+                _arg_1 = (_arg_1 - ((_arg_1 > 0) ? Math.abs(_arg_2) : -(Math.abs(_arg_2))));
+                if ((((_local_3) && (_arg_1 < 0)) || ((!(_local_3)) && (_arg_1 > 0))))
                 {
-                    param1 = 0;
-                }
-            }
-            if (Math.abs(param1) < 0.5)
+                    _arg_1 = 0;
+                };
+            };
+            if ((Math.abs(_arg_1) < 0.5))
             {
-                param1 = 0;
-            }
-            return param1;
-        }// end function
+                _arg_1 = 0;
+            };
+            return (_arg_1);
+        }
 
-        public static function setBrightness(param1:MovieClip, param2:Number) : void
+        public static function setBrightness(_arg_1:MovieClip, _arg_2:Number):void
         {
-            if (Math.abs(param2) > 100)
+            if ((Math.abs(_arg_2) > 100))
             {
-                param2 = param2 > 0 ? (100) : (-100);
-            }
-            var _loc_3:* = new ColorTransform();
-            _loc_3.redOffset = param2 * 2.55;
-            _loc_3.greenOffset = param2 * 2.55;
-            _loc_3.blueOffset = param2 * 2.55;
-            param1.transform.colorTransform = _loc_3;
-            return;
-        }// end function
+                _arg_2 = ((_arg_2 > 0) ? 100 : -100);
+            };
+            var _local_3:ColorTransform = new ColorTransform();
+            _local_3.redOffset = (_arg_2 * 2.55);
+            _local_3.greenOffset = (_arg_2 * 2.55);
+            _local_3.blueOffset = (_arg_2 * 2.55);
+            _arg_1.transform.colorTransform = _local_3;
+        }
 
-        public static function safeRemoveMC(param1:MovieClip) : void
+        public static function safeRemoveMC(_arg_1:MovieClip):void
         {
-            if (param1.parent)
+            if (_arg_1.parent)
             {
-                param1.parent.removeChild(param1);
-            }
-            return;
-        }// end function
+                _arg_1.parent.removeChild(_arg_1);
+            };
+        }
 
-        public static function getControlsAngle(param1:Object) : Number
+        public static function getControlsAngle(_arg_1:Object):Number
         {
-            if (param1.UP && !param1.DOWN && param1.LEFT && !param1.RIGHT)
+            if (((((_arg_1.UP) && (!(_arg_1.DOWN))) && (_arg_1.LEFT)) && (!(_arg_1.RIGHT))))
             {
-                return 135;
-            }
-            if (param1.UP && !param1.DOWN && !param1.LEFT && param1.RIGHT)
+                return (135);
+            };
+            if (((((_arg_1.UP) && (!(_arg_1.DOWN))) && (!(_arg_1.LEFT))) && (_arg_1.RIGHT)))
             {
-                return 45;
-            }
-            if (!param1.UP && param1.DOWN && param1.LEFT && !param1.RIGHT)
+                return (45);
+            };
+            if (((((!(_arg_1.UP)) && (_arg_1.DOWN)) && (_arg_1.LEFT)) && (!(_arg_1.RIGHT))))
             {
-                return 225;
-            }
-            if (!param1.UP && param1.DOWN && !param1.LEFT && param1.RIGHT)
+                return (225);
+            };
+            if (((((!(_arg_1.UP)) && (_arg_1.DOWN)) && (!(_arg_1.LEFT))) && (_arg_1.RIGHT)))
             {
-                return 315;
-            }
-            if (param1.UP && !param1.DOWN && !param1.LEFT && !param1.RIGHT)
+                return (315);
+            };
+            if (((((_arg_1.UP) && (!(_arg_1.DOWN))) && (!(_arg_1.LEFT))) && (!(_arg_1.RIGHT))))
             {
-                return 90;
-            }
-            if (!param1.UP && param1.DOWN && !param1.LEFT && !param1.RIGHT)
+                return (90);
+            };
+            if (((((!(_arg_1.UP)) && (_arg_1.DOWN)) && (!(_arg_1.LEFT))) && (!(_arg_1.RIGHT))))
             {
-                return 270;
-            }
-            if (!param1.UP && !param1.DOWN && param1.LEFT && !param1.RIGHT)
+                return (270);
+            };
+            if (((((!(_arg_1.UP)) && (!(_arg_1.DOWN))) && (_arg_1.LEFT)) && (!(_arg_1.RIGHT))))
             {
-                return 180;
-            }
-            if (!param1.UP && !param1.DOWN && !param1.LEFT && param1.RIGHT)
+                return (180);
+            };
+            if (((((!(_arg_1.UP)) && (!(_arg_1.DOWN))) && (!(_arg_1.LEFT))) && (_arg_1.RIGHT)))
             {
-                return 0;
-            }
-            return -1;
-        }// end function
+                return (0);
+            };
+            return (-1);
+        }
+
 
     }
-}
+}//package 
+

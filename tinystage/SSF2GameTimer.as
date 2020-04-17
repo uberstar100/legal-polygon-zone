@@ -1,61 +1,61 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
-    import flash.display.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2GameTimer extends SSF2BaseAPIObject
+//SSF2GameTimer
+
+package 
+{
+    import flash.display.MovieClip;
+
+    public class SSF2GameTimer extends SSF2BaseAPIObject 
     {
 
-        public function SSF2GameTimer(param1) : void
+        public function SSF2GameTimer(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2GameTimer";
-        }// end function
+            return ("SSF2GameTimer");
+        }
 
-        public function getCurrentTime() : int
+        public function getCurrentTime():int
         {
-            return _api.getCurrentTime();
-        }// end function
+            return (_api.getCurrentTime());
+        }
 
-        public function setCurrentTime(param1:int) : void
+        public function setCurrentTime(_arg_1:int):void
         {
-            _api.setCurrentTime(param1);
-            return;
-        }// end function
+            _api.setCurrentTime(_arg_1);
+        }
 
-        public function start() : void
+        public function start():void
         {
             _api.start();
-            return;
-        }// end function
+        }
 
-        public function restart() : void
+        public function restart():void
         {
             _api.restart();
-            return;
-        }// end function
+        }
 
-        public function stop() : void
+        public function stop():void
         {
             _api.stop();
-            return;
-        }// end function
+        }
 
-        public function getMC() : MovieClip
+        public function getMC():MovieClip
         {
-            return _api.getMC();
-        }// end function
+            return (_api.getMC());
+        }
 
-        public function setEndGameOptions(param1:Object) : void
+        public function setEndGameOptions(_arg_1:Object):void
         {
-            _api.setEndGameOptions(param1);
-            return;
-        }// end function
+            _api.setEndGameOptions(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

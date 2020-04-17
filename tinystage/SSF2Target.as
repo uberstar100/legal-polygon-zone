@@ -1,70 +1,68 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Target extends SSF2GameObject
+//SSF2Target
+
+package 
+{
+    public class SSF2Target extends SSF2GameObject 
     {
 
-        public function SSF2Target(param1) : void
+        public function SSF2Target(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Target";
-        }// end function
+            return ("SSF2Target");
+        }
 
-        override public function inState(param1:uint) : Boolean
+        override public function inState(_arg_1:uint):Boolean
         {
             if (isDisposed())
             {
-                SSF2API.print("Warning: API attempted to check inState(TState." + TState.toString(param1) + ") after object has been disposed!");
-                return param1 === 2;
-            }
-            return super.inState(param1);
-        }// end function
+                SSF2API.print((("Warning: API attempted to check inState(TState." + TState.toString(_arg_1)) + ") after object has been disposed!"));
+                return (_arg_1 === 2);
+            };
+            return (super.inState(_arg_1));
+        }
 
-        override public function setState(param1:uint) : void
+        override public function setState(_arg_1:uint):void
         {
-            if (param1 === 2)
+            if ((_arg_1 === 2))
             {
                 SSF2API.print("Warning: Cannot explicitly set SSF2Target to DEAD state. Please use destroy() method instead.");
-            }
-            super.setState(param1);
-            return;
-        }// end function
+            };
+            super.setState(_arg_1);
+        }
 
-        public function breakTarget() : void
+        public function breakTarget():void
         {
             _api.breakTarget();
-            return;
-        }// end function
+        }
 
-        public function destroy() : void
+        public function destroy():void
         {
             _api.destroy();
-            return;
-        }// end function
+        }
 
-        public function addMovement(param1:Object) : void
+        public function addMovement(_arg_1:Object):void
         {
-            _api.addMovement(param1);
-            return;
-        }// end function
+            _api.addMovement(_arg_1);
+        }
 
-        public function clearMovement() : void
+        public function clearMovement():void
         {
             _api.clearMovement();
-            return;
-        }// end function
+        }
 
-        public function setHurtInterrupt(param1:Function) : void
+        public function setHurtInterrupt(_arg_1:Function):void
         {
-            _api.setHurtInterrupt(param1);
-            return;
-        }// end function
+            _api.setHurtInterrupt(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

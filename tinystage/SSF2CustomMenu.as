@@ -1,44 +1,46 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
-    import flash.display.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2CustomMenu extends SSF2BaseAPIObject
+//SSF2CustomMenu
+
+package 
+{
+    import flash.display.MovieClip;
+
+    public class SSF2CustomMenu extends SSF2BaseAPIObject 
     {
 
-        public function SSF2CustomMenu(param1) : void
+        public function SSF2CustomMenu(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2CustomMenu";
-        }// end function
+            return ("SSF2CustomMenu");
+        }
 
-        public function getMC() : MovieClip
+        public function getMC():MovieClip
         {
-            return _api.getMC();
-        }// end function
+            return (_api.getMC());
+        }
 
-        public function show() : void
+        public function show():void
         {
             _api.show();
-            return;
-        }// end function
+        }
 
-        public function remove() : void
+        public function remove():void
         {
             _api.remove();
-            return;
-        }// end function
+        }
 
-        public function setCustomInputMapping(param1:Object) : void
+        public function setCustomInputMapping(_arg_1:Object):void
         {
-            _api.setCustomInputMapping(param1);
-            return;
-        }// end function
+            _api.setCustomInputMapping(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

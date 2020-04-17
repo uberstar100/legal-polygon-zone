@@ -1,21 +1,26 @@
-﻿package tinystage_fla
-{
-    import flash.display.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    dynamic public class shadowMask_26 extends MovieClip
+//tinystage_fla.shadowMask_26
+
+package tinystage_fla
+{
+    import flash.display.MovieClip;
+
+    public dynamic class shadowMask_26 extends MovieClip 
     {
 
         public function shadowMask_26()
         {
             addFrameScript(0, this.frame1);
-            return;
-        }// end function
+        }
 
-        function frame1()
+        internal function frame1():*
         {
             this.visible = false;
-            return;
-        }// end function
+        }
+
 
     }
-}
+}//package tinystage_fla
+

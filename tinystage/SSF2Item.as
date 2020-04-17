@@ -1,135 +1,128 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Item extends SSF2GameObject
+//SSF2Item
+
+package 
+{
+    public class SSF2Item extends SSF2GameObject 
     {
 
-        public function SSF2Item(param1) : void
+        public function SSF2Item(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Item";
-        }// end function
+            return ("SSF2Item");
+        }
 
-        override public function inState(param1:uint) : Boolean
+        override public function inState(_arg_1:uint):Boolean
         {
             if (isDisposed())
             {
-                SSF2API.print("Warning: API attempted to check inState(IState." + IState.toString(param1) + ") after object has been disposed!");
-                return param1 === 3;
-            }
-            return super.inState(param1);
-        }// end function
+                SSF2API.print((("Warning: API attempted to check inState(IState." + IState.toString(_arg_1)) + ") after object has been disposed!"));
+                return (_arg_1 === 3);
+            };
+            return (super.inState(_arg_1));
+        }
 
-        override public function setState(param1:uint) : void
+        override public function setState(_arg_1:uint):void
         {
-            if (param1 === 3)
+            if ((_arg_1 === 3))
             {
                 SSF2API.print("Warning: Cannot explicitly set SSF2Item to DEAD state. Please use destroy() method instead.");
-            }
-            super.setState(param1);
-            return;
-        }// end function
+            };
+            super.setState(_arg_1);
+        }
 
-        public function destroy(param1:Boolean = false) : void
+        public function destroy(_arg_1:Boolean=false):void
         {
-            _api.destroy(param1);
-            return;
-        }// end function
+            _api.destroy(_arg_1);
+        }
 
-        public function fireProjectile(param1, param2:Number = 0, param3:Number = 0, param4:Boolean = false, param5:Object = null)
+        public function fireProjectile(_arg_1:*, _arg_2:Number=0, _arg_3:Number=0, _arg_4:Boolean=false, _arg_5:Object=null):*
         {
-            return _api.fireProjectile(param1, param2, param3, param4, param5);
-        }// end function
+            return (_api.fireProjectile(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5));
+        }
 
-        public function getItemStat(param1:String)
+        public function getItemStat(_arg_1:String):*
         {
-            return _api.getItemStat(param1);
-        }// end function
+            return (_api.getItemStat(_arg_1));
+        }
 
-        public function getUses() : int
+        public function getUses():int
         {
-            return _api.getUses();
-        }// end function
+            return (_api.getUses());
+        }
 
-        public function isReversed() : Boolean
+        public function isReversed():Boolean
         {
-            return _api.isReversed();
-        }// end function
+            return (_api.isReversed());
+        }
 
-        public function resetTime() : void
+        public function resetTime():void
         {
             _api.resetTime();
-            return;
-        }// end function
+        }
 
-        public function updateItemStats(param1:Object) : void
+        public function updateItemStats(_arg_1:Object):void
         {
-            _api.updateItemStats(param1);
-            return;
-        }// end function
+            _api.updateItemStats(_arg_1);
+        }
 
-        public function getOwner()
+        public function getOwner():*
         {
-            return _api.getOwner();
-        }// end function
+            return (_api.getOwner());
+        }
 
-        public function setOwner(param1) : void
+        public function setOwner(_arg_1:*):void
         {
-            _api.setOwner(param1);
-            return;
-        }// end function
+            _api.setOwner(_arg_1);
+        }
 
-        public function getHolder()
+        public function getHolder():*
         {
-            return _api.getHolder();
-        }// end function
+            return (_api.getHolder());
+        }
 
-        public function setHolder(param1) : void
+        public function setHolder(_arg_1:*):void
         {
-            _api.setHolder(param1);
-            return;
-        }// end function
+            _api.setHolder(_arg_1);
+        }
 
-        public function toIdle(param1 = null) : void
+        public function toIdle(_arg_1:*=null):void
         {
-            _api.toIdle(param1);
-            return;
-        }// end function
+            _api.toIdle(_arg_1);
+        }
 
-        public function toHeld(param1 = null) : void
+        public function toHeld(_arg_1:*=null):void
         {
-            _api.toHeld(param1);
-            return;
-        }// end function
+            _api.toHeld(_arg_1);
+        }
 
-        public function toToss(param1 = null) : void
+        public function toToss(_arg_1:*=null):void
         {
-            _api.toToss(param1);
-            return;
-        }// end function
+            _api.toToss(_arg_1);
+        }
 
-        public function setFrameInterrupt(param1:Function) : void
+        public function setFrameInterrupt(_arg_1:Function):void
         {
-            _api.setFrameInterrupt(param1);
-            return;
-        }// end function
+            _api.setFrameInterrupt(_arg_1);
+        }
 
-        public function setHurtInterrupt(param1:Function) : void
+        public function setHurtInterrupt(_arg_1:Function):void
         {
-            _api.setHurtInterrupt(param1);
-            return;
-        }// end function
+            _api.setHurtInterrupt(_arg_1);
+        }
 
-        public function isZDropped() : Boolean
+        public function isZDropped():Boolean
         {
-            return _api.isZDropped();
-        }// end function
+            return (_api.isZDropped());
+        }
+
 
     }
-}
+}//package 
+

@@ -1,748 +1,692 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
-    import flash.display.*;
-    import flash.geom.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2GameObject extends SSF2BaseAPIObject
+//SSF2GameObject
+
+package 
+{
+    import flash.display.MovieClip;
+    import flash.geom.Point;
+    import flash.geom.Rectangle;
+
+    public class SSF2GameObject extends SSF2BaseAPIObject 
     {
 
-        public function SSF2GameObject(param1) : void
+        public function SSF2GameObject(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2GameObject";
-        }// end function
+            return ("SSF2GameObject");
+        }
 
-        public function getOwnStats() : Object
+        public function getOwnStats():Object
         {
-            return {};
-        }// end function
+            return ({});
+        }
 
-        public function getAttackStats() : Object
+        public function getAttackStats():Object
         {
-            return {};
-        }// end function
+            return ({});
+        }
 
-        public function getProjectileStats() : Object
+        public function getProjectileStats():Object
         {
-            return {};
-        }// end function
+            return ({});
+        }
 
-        public function getItemStats() : Object
+        public function getItemStats():Object
         {
-            return {};
-        }// end function
+            return ({});
+        }
 
-        public function getGameObjectStat(param1:String)
+        public function getGameObjectStat(_arg_1:String):*
         {
-            return _api.getGameObjectStat(param1);
-        }// end function
+            return (_api.getGameObjectStat(_arg_1));
+        }
 
-        public function playSound(param1, param2:Boolean = false) : int
+        public function playSound(_arg_1:*, _arg_2:Boolean=false):int
         {
-            return _api.playSound(param1, param2);
-        }// end function
+            return (_api.playSound(_arg_1, _arg_2));
+        }
 
-        public function stopSound(param1:int) : void
+        public function stopSound(_arg_1:int):void
         {
-            _api.stopSound(param1);
-            return;
-        }// end function
+            _api.stopSound(_arg_1);
+        }
 
-        public function addToCamera() : void
+        public function addToCamera():void
         {
             _api.addToCamera();
-            return;
-        }// end function
+        }
 
-        public function addEventListener(param1:String, param2:Function, param3:Object = null) : void
+        public function addEventListener(_arg_1:String, _arg_2:Function, _arg_3:Object=null):void
         {
-            if (param1 === "projCollideOwner")
+            if ((_arg_1 === "projCollideOwner"))
             {
                 SSF2API.print("Warning!! SSF2Event.PROJ_COLLIDE_OWNER event is deprecated, please use PROJ_COLLIDE event instead");
-            }
-            _api.addEventListener(param1, param2, param3);
-            return;
-        }// end function
+            };
+            _api.addEventListener(_arg_1, _arg_2, _arg_3);
+        }
 
-        public function hasEventListener(param1:String, param2:Function = null) : Boolean
+        public function hasEventListener(_arg_1:String, _arg_2:Function=null):Boolean
         {
-            return _api.hasEventListener(param1, param2);
-        }// end function
+            return (_api.hasEventListener(_arg_1, _arg_2));
+        }
 
-        public function removeEventListener(param1:String, param2:Function) : void
+        public function removeEventListener(_arg_1:String, _arg_2:Function):void
         {
-            _api.removeEventListener(param1, param2);
-            return;
-        }// end function
+            _api.removeEventListener(_arg_1, _arg_2);
+        }
 
-        public function attachEffect(param1, param2:Object = null) : MovieClip
+        public function attachEffect(_arg_1:*, _arg_2:Object=null):MovieClip
         {
-            return _api.attachEffect(param1, param2);
-        }// end function
+            return (_api.attachEffect(_arg_1, _arg_2));
+        }
 
-        public function attachEffectOverlay(param1, param2:Object = null) : MovieClip
+        public function attachEffectOverlay(_arg_1:*, _arg_2:Object=null):MovieClip
         {
-            return _api.attachEffectOverlay(param1, param2);
-        }// end function
+            return (_api.attachEffectOverlay(_arg_1, _arg_2));
+        }
 
-        public function camFocus(param1:int) : void
+        public function camFocus(_arg_1:int):void
         {
-            _api.camFocus(param1);
-            return;
-        }// end function
+            _api.camFocus(_arg_1);
+        }
 
-        public function camUnfocus() : void
+        public function camUnfocus():void
         {
             _api.camUnfocus();
-            return;
-        }// end function
+        }
 
-        public function createTimer(param1:int, param2:int, param3:Function, param4:Object = null) : void
+        public function createTimer(_arg_1:int, _arg_2:int, _arg_3:Function, _arg_4:Object=null):void
         {
-            _api.createTimer(param1, param2, param3, param4);
-            return;
-        }// end function
+            _api.createTimer(_arg_1, _arg_2, _arg_3, _arg_4);
+        }
 
-        public function destroyTimer(param1:Function) : void
+        public function destroyTimer(_arg_1:Function):void
         {
-            _api.destroyTimer(param1);
-            return;
-        }// end function
+            _api.destroyTimer(_arg_1);
+        }
 
-        public function faceLeft() : void
+        public function faceLeft():void
         {
             _api.faceLeft();
-            return;
-        }// end function
+        }
 
-        public function faceRight() : void
+        public function faceRight():void
         {
             _api.faceRight();
-            return;
-        }// end function
+        }
 
-        public function flip(param1 = null) : void
+        public function flip(_arg_1:*=null):void
         {
-            _api.flip(param1);
-            return;
-        }// end function
+            _api.flip(_arg_1);
+        }
 
-        public function forceHitStun(param1:int, param2:Number = -1) : void
+        public function forceHitStun(_arg_1:int, _arg_2:Number=-1):void
         {
-            _api.forceHitStun(param1, param2);
-            return;
-        }// end function
+            _api.forceHitStun(_arg_1, _arg_2);
+        }
 
-        public function getAttackBoxStat(param1:int, param2:String)
+        public function getAttackBoxStat(_arg_1:int, _arg_2:String):*
         {
-            return _api.getAttackBoxStat(param1, param2);
-        }// end function
+            return (_api.getAttackBoxStat(_arg_1, _arg_2));
+        }
 
-        public function exportAttackBoxStats(param1:int, param2:String) : Object
+        public function exportAttackBoxStats(_arg_1:int, _arg_2:String):Object
         {
-            return _api.exportAttackBoxStats(param1, param2);
-        }// end function
+            return (_api.exportAttackBoxStats(_arg_1, _arg_2));
+        }
 
-        public function getAttackStat(param1:String)
+        public function getAttackStat(_arg_1:String):*
         {
-            return _api.getAttackStat(param1);
-        }// end function
+            return (_api.getAttackStat(_arg_1));
+        }
 
-        public function getCounterAttackBoxStats() : Object
+        public function getCounterAttackBoxStats():Object
         {
-            return _api.getCounterAttackBoxStats();
-        }// end function
+            return (_api.getCounterAttackBoxStats());
+        }
 
-        public function getGlobalVariable(param1:String)
+        public function getGlobalVariable(_arg_1:String):*
         {
-            return _api.getGlobalVariable(param1);
-        }// end function
+            return (_api.getGlobalVariable(_arg_1));
+        }
 
-        public function getHeight() : Number
+        public function getHeight():Number
         {
-            return _api.getHeight();
-        }// end function
+            return (_api.getHeight());
+        }
 
-        public function getHitBox(param1:String) : Object
+        public function getHitBox(_arg_1:String):Object
         {
-            return _api.getHitBox(param1);
-        }// end function
+            return (_api.getHitBox(_arg_1));
+        }
 
-        public function getHomingTarget()
+        public function getHomingTarget():*
         {
-            return _api.getHomingTarget();
-        }// end function
+            return (_api.getHomingTarget());
+        }
 
-        public function getID() : int
+        public function getID():int
         {
-            return _api.getID();
-        }// end function
+            return (_api.getID());
+        }
 
-        public function getTeamID() : int
+        public function getTeamID():int
         {
-            return _api.getTeamID();
-        }// end function
+            return (_api.getTeamID());
+        }
 
-        public function setTeamID(param1:int) : void
+        public function setTeamID(_arg_1:int):void
         {
-            _api.setTeamID(param1);
-            return;
-        }// end function
+            _api.setTeamID(_arg_1);
+        }
 
-        public function getLinkageID() : String
+        public function getLinkageID():String
         {
-            return _api.getLinkageID();
-        }// end function
+            return (_api.getLinkageID());
+        }
 
-        public function getMC() : MovieClip
+        public function getMC():MovieClip
         {
-            return _api.getMC();
-        }// end function
+            return (_api.getMC());
+        }
 
-        public function getProjectiles() : Array
+        public function getProjectiles():Array
         {
-            return _api.getProjectiles();
-        }// end function
+            return (_api.getProjectiles());
+        }
 
-        public function getRotation() : Number
+        public function getRotation():Number
         {
-            return _api.getRotation();
-        }// end function
+            return (_api.getRotation());
+        }
 
-        public function getScale() : Point
+        public function getScale():Point
         {
-            return _api.getScale();
-        }// end function
+            return (_api.getScale());
+        }
 
-        public function getStanceMC() : MovieClip
+        public function getStanceMC():MovieClip
         {
-            return _api.getStanceMC();
-        }// end function
+            return (_api.getStanceMC());
+        }
 
-        public function getUID() : int
+        public function getUID():int
         {
-            return _api.getUID();
-        }// end function
+            return (_api.getUID());
+        }
 
-        public function getWidth() : Number
+        public function getWidth():Number
         {
-            return _api.getWidth();
-        }// end function
+            return (_api.getWidth());
+        }
 
-        public function getX() : Number
+        public function getX():Number
         {
-            return _api.getX();
-        }// end function
+            return (_api.getX());
+        }
 
-        public function getXScale() : Number
+        public function getXScale():Number
         {
-            return _api.getXScale();
-        }// end function
+            return (_api.getXScale());
+        }
 
-        public function getXSpeed() : Number
+        public function getXSpeed():Number
         {
-            return _api.getXSpeed();
-        }// end function
+            return (_api.getXSpeed());
+        }
 
-        public function getY() : Number
+        public function getY():Number
         {
-            return _api.getY();
-        }// end function
+            return (_api.getY());
+        }
 
-        public function getYScale() : Number
+        public function getYScale():Number
         {
-            return _api.getYScale();
-        }// end function
+            return (_api.getYScale());
+        }
 
-        public function getYSpeed() : Number
+        public function getYSpeed():Number
         {
-            return _api.getYSpeed();
-        }// end function
+            return (_api.getYSpeed());
+        }
 
-        public function getNearest(param1:String, param2:Boolean = true, param3:Boolean = true)
+        public function getNearest(_arg_1:String, _arg_2:Boolean=true, _arg_3:Boolean=true):*
         {
-            return _api.getNearest(param1, param2, param3);
-        }// end function
+            return (_api.getNearest(_arg_1, _arg_2, _arg_3));
+        }
 
-        public function getNearestPath(param1:String, param2:Boolean = true, param3:Boolean = true) : Array
+        public function getNearestPath(_arg_1:String, _arg_2:Boolean=true, _arg_3:Boolean=true):Array
         {
-            return _api.getNearestPath(param1, param2, param3);
-        }// end function
+            return (_api.getNearestPath(_arg_1, _arg_2, _arg_3));
+        }
 
-        public function getNearestLedge() : MovieClip
+        public function getNearestLedge():MovieClip
         {
-            return _api.getNearestLedge();
-        }// end function
+            return (_api.getNearestLedge());
+        }
 
-        public function getCurrentPlatform()
+        public function getCurrentPlatform():*
         {
-            return _api.getCurrentPlatform();
-        }// end function
+            return (_api.getCurrentPlatform());
+        }
 
-        public function homeTowardsTarget(param1:Number, param2) : void
+        public function homeTowardsTarget(_arg_1:Number, _arg_2:*):void
         {
-            _api.homeTowardsTarget(param1, param2);
-            return;
-        }// end function
+            _api.homeTowardsTarget(_arg_1, _arg_2);
+        }
 
-        public function isFacingRight() : Boolean
+        public function isFacingRight():Boolean
         {
-            return _api.isFacingRight();
-        }// end function
+            return (_api.isFacingRight());
+        }
 
-        public function isOnGround() : Boolean
+        public function isOnGround():Boolean
         {
-            return _api.isOnGround();
-        }// end function
+            return (_api.isOnGround());
+        }
 
-        public function netSpeed(param1:Boolean = false, param2:Boolean = false) : Number
+        public function netSpeed(_arg_1:Boolean=false, _arg_2:Boolean=false):Number
         {
-            return _api.netSpeed(param1, param2);
-        }// end function
+            return (_api.netSpeed(_arg_1, _arg_2));
+        }
 
-        public function netXSpeed(param1:Boolean = false, param2:Boolean = false) : Number
+        public function netXSpeed(_arg_1:Boolean=false, _arg_2:Boolean=false):Number
         {
-            return _api.netXSpeed(param1, param2);
-        }// end function
+            return (_api.netXSpeed(_arg_1, _arg_2));
+        }
 
-        public function netYSpeed(param1:Boolean = false, param2:Boolean = false) : Number
+        public function netYSpeed(_arg_1:Boolean=false, _arg_2:Boolean=false):Number
         {
-            return _api.netYSpeed(param1, param2);
-        }// end function
+            return (_api.netYSpeed(_arg_1, _arg_2));
+        }
 
-        public function removeFromCamera() : void
+        public function removeFromCamera():void
         {
             _api.removeFromCamera();
-            return;
-        }// end function
+        }
 
-        public function refreshAttackID() : void
+        public function refreshAttackID():void
         {
             _api.refreshAttackID();
-            return;
-        }// end function
+        }
 
-        public function refreshStaleID() : void
+        public function refreshStaleID():void
         {
             _api.refreshStaleID();
-            return;
-        }// end function
+        }
 
-        public function resetRotation() : void
+        public function resetRotation():void
         {
             _api.resetRotation();
-            return;
-        }// end function
+        }
 
-        public function resetKnockback() : void
+        public function resetKnockback():void
         {
             _api.resetKnockback();
-            return;
-        }// end function
+        }
 
-        public function resetKnockbackDecay() : void
+        public function resetKnockbackDecay():void
         {
             _api.resetKnockbackDecay();
-            return;
-        }// end function
+        }
 
-        public function getKnockbackDecay() : Object
+        public function getKnockbackDecay():Object
         {
-            return _api.getKnockbackDecay();
-        }// end function
+            return (_api.getKnockbackDecay());
+        }
 
-        public function setKnockbackDecay(param1:Number, param2:Number) : void
+        public function setKnockbackDecay(_arg_1:Number, _arg_2:Number):void
         {
-            _api.setKnockbackDecay(param1, param2);
-            return;
-        }// end function
+            _api.setKnockbackDecay(_arg_1, _arg_2);
+        }
 
-        public function safeMove(param1:Number, param2:Number) : Boolean
+        public function safeMove(_arg_1:Number, _arg_2:Number):Boolean
         {
-            return _api.safeMove(param1, param2);
-        }// end function
+            return (_api.safeMove(_arg_1, _arg_2));
+        }
 
-        public function setCamBoxSize(param1:Number, param2:Number, param3:Number = 0, param4:Number = 0) : void
+        public function setCamBoxSize(_arg_1:Number, _arg_2:Number, _arg_3:Number=0, _arg_4:Number=0):void
         {
-            _api.setCamBoxSize(param1, param2, param3, param4);
-            return;
-        }// end function
+            _api.setCamBoxSize(_arg_1, _arg_2, _arg_3, _arg_4);
+        }
 
-        public function setGlobalVariable(param1:String, param2) : void
+        public function setGlobalVariable(_arg_1:String, _arg_2:*):void
         {
-            _api.setGlobalVariable(param1, param2);
-            return;
-        }// end function
+            _api.setGlobalVariable(_arg_1, _arg_2);
+        }
 
-        public function setPosition(param1:Number, param2:Number) : void
+        public function setPosition(_arg_1:Number, _arg_2:Number):void
         {
-            _api.setPosition(param1, param2);
-            return;
-        }// end function
+            _api.setPosition(_arg_1, _arg_2);
+        }
 
-        public function setRotation(param1:Number) : void
+        public function setRotation(_arg_1:Number):void
         {
-            _api.setRotation(param1);
-            return;
-        }// end function
+            _api.setRotation(_arg_1);
+        }
 
-        public function setScale(param1:Number, param2:Number) : void
+        public function setScale(_arg_1:Number, _arg_2:Number):void
         {
-            _api.setScale(param1, param2);
-            return;
-        }// end function
+            _api.setScale(_arg_1, _arg_2);
+        }
 
-        public function setX(param1:Number) : void
+        public function setX(_arg_1:Number):void
         {
-            _api.setX(param1);
-            return;
-        }// end function
+            _api.setX(_arg_1);
+        }
 
-        public function setXSpeed(param1:Number, param2:Boolean = true) : void
+        public function setXSpeed(_arg_1:Number, _arg_2:Boolean=true):void
         {
-            _api.setXSpeed(param1, param2);
-            return;
-        }// end function
+            _api.setXSpeed(_arg_1, _arg_2);
+        }
 
-        public function setY(param1:Number) : void
+        public function setY(_arg_1:Number):void
         {
-            _api.setY(param1);
-            return;
-        }// end function
+            _api.setY(_arg_1);
+        }
 
-        public function setYSpeed(param1:Number) : void
+        public function setYSpeed(_arg_1:Number):void
         {
-            _api.setYSpeed(param1);
-            return;
-        }// end function
+            _api.setYSpeed(_arg_1);
+        }
 
-        public function stancePlayFrame(param1) : void
+        public function stancePlayFrame(_arg_1:*):void
         {
-            _api.stancePlayFrame(param1);
-            return;
-        }// end function
+            _api.stancePlayFrame(_arg_1);
+        }
 
-        public function swapDepths(param1) : void
+        public function swapDepths(_arg_1:*):void
         {
-            _api.swapDepths(param1);
-            return;
-        }// end function
+            _api.swapDepths(_arg_1);
+        }
 
-        public function bringBehind(param1) : void
+        public function bringBehind(_arg_1:*):void
         {
-            _api.bringBehind(param1);
-            return;
-        }// end function
+            _api.bringBehind(_arg_1);
+        }
 
-        public function bringInFront(param1) : void
+        public function bringInFront(_arg_1:*):void
         {
-            _api.bringInFront(param1);
-            return;
-        }// end function
+            _api.bringInFront(_arg_1);
+        }
 
-        public function attachToGround() : void
+        public function attachToGround():void
         {
             _api.attachToGround();
-            return;
-        }// end function
+        }
 
-        public function unnattachFromGround() : void
+        public function unnattachFromGround():void
         {
             _api.unnattachFromGround();
-            return;
-        }// end function
+        }
 
-        public function updateAttackBoxStats(param1:int, param2:Object) : void
+        public function updateAttackBoxStats(_arg_1:int, _arg_2:Object):void
         {
-            _api.updateAttackBoxStats(param1, param2);
-            return;
-        }// end function
+            _api.updateAttackBoxStats(_arg_1, _arg_2);
+        }
 
-        public function updateAttackStats(param1:Object) : void
+        public function updateAttackStats(_arg_1:Object):void
         {
-            _api.updateAttackStats(param1);
-            return;
-        }// end function
+            _api.updateAttackStats(_arg_1);
+        }
 
-        public function replaceAttackStats(param1:String, param2:Object) : void
+        public function replaceAttackStats(_arg_1:String, _arg_2:Object):void
         {
-            _api.replaceAttackStats(param1, param2);
-            return;
-        }// end function
+            _api.replaceAttackStats(_arg_1, _arg_2);
+        }
 
-        public function replaceAttackBoxStats(param1:String, param2:int, param3:Object) : void
+        public function replaceAttackBoxStats(_arg_1:String, _arg_2:int, _arg_3:Object):void
         {
-            _api.replaceAttackBoxStats(param1, param2, param3);
-            return;
-        }// end function
+            _api.replaceAttackBoxStats(_arg_1, _arg_2, _arg_3);
+        }
 
-        public function inState(param1:uint) : Boolean
+        public function inState(_arg_1:uint):Boolean
         {
-            return _api.inState(param1);
-        }// end function
+            return (_api.inState(_arg_1));
+        }
 
-        public function getState() : uint
+        public function getState():uint
         {
-            return _api.getState();
-        }// end function
+            return (_api.getState());
+        }
 
-        public function setState(param1:uint) : void
+        public function setState(_arg_1:uint):void
         {
-            _api.setState(param1);
-            return;
-        }// end function
+            _api.setState(_arg_1);
+        }
 
-        public function extraHitTests(param1:Number, param2:Number, param3) : Boolean
+        public function extraHitTests(_arg_1:Number, _arg_2:Number, _arg_3:*):Boolean
         {
-            return false;
-        }// end function
+            return (false);
+        }
 
-        public function takeDamage(param1:Object, param2, param3:Rectangle = null) : Boolean
+        public function takeDamage(_arg_1:Object, _arg_2:*, _arg_3:Rectangle=null):Boolean
         {
-            return _api.takeDamage(param1, param2, param3);
-        }// end function
+            return (_api.takeDamage(_arg_1, _arg_2, _arg_3));
+        }
 
-        public function getBoundsRect() : Rectangle
+        public function getBoundsRect():Rectangle
         {
-            return _api.getBoundsRect();
-        }// end function
+            return (_api.getBoundsRect());
+        }
 
-        public function getCurrentAnimation() : String
+        public function getCurrentAnimation():String
         {
-            return _api.getCurrentAnimation();
-        }// end function
+            return (_api.getCurrentAnimation());
+        }
 
-        public function getStageParentPosition() : Point
+        public function getStageParentPosition():Point
         {
-            return _api.getStageParentPosition();
-        }// end function
+            return (_api.getStageParentPosition());
+        }
 
-        public function applyKnockback(param1:Number, param2:Number) : void
+        public function applyKnockback(_arg_1:Number, _arg_2:Number):void
         {
-            _api.applyKnockback(param1, param2);
-            return;
-        }// end function
+            _api.applyKnockback(_arg_1, _arg_2);
+        }
 
-        public function applyKnockbackSpeed(param1:Number, param2:Number) : void
+        public function applyKnockbackSpeed(_arg_1:Number, _arg_2:Number):void
         {
-            _api.applyKnockbackSpeed(param1, param2);
-            return;
-        }// end function
+            _api.applyKnockbackSpeed(_arg_1, _arg_2);
+        }
 
-        public function resetFade(param1:int = 15) : void
+        public function resetFade(_arg_1:int=15):void
         {
-            _api.resetFade(param1);
-            return;
-        }// end function
+            _api.resetFade(_arg_1);
+        }
 
-        public function fadeIn() : void
+        public function fadeIn():void
         {
             _api.fadeIn();
-            return;
-        }// end function
+        }
 
-        public function fadeOut() : void
+        public function fadeOut():void
         {
             _api.fadeOut();
-            return;
-        }// end function
+        }
 
-        public function inHitStun() : Boolean
+        public function inHitStun():Boolean
         {
-            return _api.inHitStun();
-        }// end function
+            return (_api.inHitStun());
+        }
 
-        public function inParalysis() : Boolean
+        public function inParalysis():Boolean
         {
-            return _api.inParalysis();
-        }// end function
+            return (_api.inParalysis());
+        }
 
-        public function inLowerLeftWarningBounds() : Boolean
+        public function inLowerLeftWarningBounds():Boolean
         {
-            return _api.inLowerLeftWarningBounds();
-        }// end function
+            return (_api.inLowerLeftWarningBounds());
+        }
 
-        public function inUpperLeftWarningBounds() : Boolean
+        public function inUpperLeftWarningBounds():Boolean
         {
-            return _api.inUpperLeftWarningBounds();
-        }// end function
+            return (_api.inUpperLeftWarningBounds());
+        }
 
-        public function inLowerRightWarningBounds() : Boolean
+        public function inLowerRightWarningBounds():Boolean
         {
-            return _api.inLowerRightWarningBounds();
-        }// end function
+            return (_api.inLowerRightWarningBounds());
+        }
 
-        public function inUpperRightWarningBounds() : Boolean
+        public function inUpperRightWarningBounds():Boolean
         {
-            return _api.inUpperRightWarningBounds();
-        }// end function
+            return (_api.inUpperRightWarningBounds());
+        }
 
-        public function setTargetInterrupt(param1:Function) : void
+        public function setTargetInterrupt(_arg_1:Function):void
         {
-            _api.setTargetInterrupt(param1);
-            return;
-        }// end function
+            _api.setTargetInterrupt(_arg_1);
+        }
 
-        public function createSelfPlatform(param1:Number, param2:Number, param3:Number, param4:Number, param5:Boolean = true)
+        public function createSelfPlatform(_arg_1:Number, _arg_2:Number, _arg_3:Number, _arg_4:Number, _arg_5:Boolean=true):*
         {
-            return _api.createSelfPlatform(param1, param2, param3, param4, param5, SSF2Platform);
-        }// end function
+            return (_api.createSelfPlatform(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5, SSF2Platform));
+        }
 
-        public function createSelfPlatformWithMC(param1:MovieClip, param2:Boolean = true)
+        public function createSelfPlatformWithMC(_arg_1:MovieClip, _arg_2:Boolean=true):*
         {
-            return _api.createSelfPlatformWithMC(param1, param2, SSF2Platform);
-        }// end function
+            return (_api.createSelfPlatformWithMC(_arg_1, _arg_2, SSF2Platform));
+        }
 
-        public function removeSelfPlatform() : void
+        public function removeSelfPlatform():void
         {
             _api.removeSelfPlatform();
-            return;
-        }// end function
+        }
 
-        public function getDamage() : Number
+        public function getDamage():Number
         {
-            return _api.getDamage();
-        }// end function
+            return (_api.getDamage());
+        }
 
-        public function setDamage(param1:Number) : void
+        public function setDamage(_arg_1:Number):void
         {
-            _api.setDamage(param1);
-            return;
-        }// end function
+            _api.setDamage(_arg_1);
+        }
 
-        public function isFading() : Boolean
+        public function isFading():Boolean
         {
-            return _api.isFading();
-        }// end function
+            return (_api.isFading());
+        }
 
-        public function forceOnGround(param1:Number = 200) : void
+        public function forceOnGround(_arg_1:Number=200):void
         {
-            _api.forceOnGround(param1);
-            return;
-        }// end function
+            _api.forceOnGround(_arg_1);
+        }
 
-        public function getSizeRatio() : Number
+        public function getSizeRatio():Number
         {
-            return _api.getSizeRatio();
-        }// end function
+            return (_api.getSizeRatio());
+        }
 
-        public function setSizeRatio(param1:Number) : void
+        public function setSizeRatio(_arg_1:Number):void
         {
-            _api.setSizeRatio(param1);
-            return;
-        }// end function
+            _api.setSizeRatio(_arg_1);
+        }
 
-        public function setVisibility(param1:Boolean) : void
+        public function setVisibility(_arg_1:Boolean):void
         {
-            _api.setVisibility(param1);
-            return;
-        }// end function
+            _api.setVisibility(_arg_1);
+        }
 
-        public function getPreviousAnimation() : String
+        public function getPreviousAnimation():String
         {
-            return _api.getPreviousAnimation();
-        }// end function
+            return (_api.getPreviousAnimation());
+        }
 
-        public function getWeight2() : Number
+        public function getWeight2():Number
         {
-            return _api.getWeight2();
-        }// end function
+            return (_api.getWeight2());
+        }
 
-        public function setWeight2(param1:Number) : void
+        public function setWeight2(_arg_1:Number):void
         {
-            _api.setWeight2(param1);
-            return;
-        }// end function
+            _api.setWeight2(_arg_1);
+        }
 
-        public function getLastHurtAttackBoxStats() : Object
+        public function getLastHurtAttackBoxStats():Object
         {
-            return _api.getLastHurtAttackBoxStats();
-        }// end function
+            return (_api.getLastHurtAttackBoxStats());
+        }
 
-        public function attachHealthBox(param1:String, param2:String, param3:String, param4:int = -1, param5:String = null, param6:int = -1) : void
+        public function attachHealthBox(_arg_1:String, _arg_2:String, _arg_3:String, _arg_4:int=-1, _arg_5:String=null, _arg_6:int=-1):void
         {
-            _api.attachHealthBox(param1, param2, param3, param4, param5, param6);
-            return;
-        }// end function
+            _api.attachHealthBox(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6);
+        }
 
-        public function detachHealthBox() : void
+        public function detachHealthBox():void
         {
             _api.detachHealthBox();
-            return;
-        }// end function
+        }
 
-        public function setColorFilters(param1:Object) : void
+        public function setColorFilters(_arg_1:Object):void
         {
-            _api.setColorFilters(param1);
-            return;
-        }// end function
+            _api.setColorFilters(_arg_1);
+        }
 
-        public function applyPalette(param1:MovieClip) : void
+        public function applyPalette(_arg_1:MovieClip):void
         {
-            _api.applyPalette(param1);
-            return;
-        }// end function
+            _api.applyPalette(_arg_1);
+        }
 
-        public function throbDamageCounter() : void
+        public function throbDamageCounter():void
         {
             _api.throbDamageCounter();
-            return;
-        }// end function
+        }
 
-        public function getInvincibility() : Boolean
+        public function getInvincibility():Boolean
         {
-            return _api.getInvincibility();
-        }// end function
+            return (_api.getInvincibility());
+        }
 
-        public function getIntangibility() : Boolean
+        public function getIntangibility():Boolean
         {
-            return _api.getIntangibility();
-        }// end function
+            return (_api.getIntangibility());
+        }
 
-        public function setIntangibility(param1:Boolean) : void
+        public function setIntangibility(_arg_1:Boolean):void
         {
-            _api.setIntangibility(param1);
-            return;
-        }// end function
+            _api.setIntangibility(_arg_1);
+        }
 
-        public function setInvincibility(param1:Boolean) : void
+        public function setInvincibility(_arg_1:Boolean):void
         {
-            _api.setInvincibility(param1);
-            return;
-        }// end function
+            _api.setInvincibility(_arg_1);
+        }
 
-        public function getClosestLedge() : MovieClip
+        public function getClosestLedge():MovieClip
         {
-            return _api.getClosestLedge();
-        }// end function
+            return (_api.getClosestLedge());
+        }
 
-        public function getHealthBox() : MovieClip
+        public function getHealthBox():MovieClip
         {
-            return _api.getHealthBox();
-        }// end function
+            return (_api.getHealthBox());
+        }
 
-        public function forceAttack(param1:String, param2 = null, param3:Boolean = false) : void
+        public function forceAttack(_arg_1:String, _arg_2:*=null, _arg_3:Boolean=false):void
         {
-            _api.forceAttack(param1, param2, param3);
-            return;
-        }// end function
+            _api.forceAttack(_arg_1, _arg_2, _arg_3);
+        }
 
-        public function getPaletteSwapData() : Object
+        public function getPaletteSwapData():Object
         {
-            return _api.getPaletteSwapData();
-        }// end function
+            return (_api.getPaletteSwapData());
+        }
 
-        public function setPaletteSwapData(param1:Object) : void
+        public function setPaletteSwapData(_arg_1:Object):void
         {
-            _api.setPaletteSwapData(param1);
-            return;
-        }// end function
+            _api.setPaletteSwapData(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

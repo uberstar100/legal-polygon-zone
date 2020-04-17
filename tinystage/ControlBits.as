@@ -1,9 +1,13 @@
-﻿package 
-{
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class ControlBits extends Object
+//ControlBits
+
+package 
+{
+    public class ControlBits 
     {
-        public var bits:int;
+
         public static const TAP_JUMP:int = 1;
         public static const SHIELD:int = 2;
         public static const TAUNT:int = 4;
@@ -12,284 +16,265 @@
         public static const BUTTON2:int = 32;
         public static const BUTTON1:int = 64;
         public static const JUMP:int = 128;
-        public static const RIGHT:int = 256;
-        public static const LEFT:int = 512;
-        public static const DOWN:int = 1024;
-        public static const UP:int = 2048;
-        public static const DT_DASH:int = 4096;
-        public static const AUTO_DASH:int = 8192;
-        public static const DASH:int = 16384;
-        public static const C_RIGHT:int = 32768;
-        public static const C_LEFT:int = 65536;
-        public static const C_DOWN:int = 131072;
-        public static const C_UP:int = 262144;
-        public static const JUMP2:int = 524288;
-        public static const SHIELD2:int = 1048576;
-        public static const JUMP3:int = 2097152;
+        public static const RIGHT:int = 0x0100;
+        public static const LEFT:int = 0x0200;
+        public static const DOWN:int = 0x0400;
+        public static const UP:int = 0x0800;
+        public static const DT_DASH:int = 0x1000;
+        public static const AUTO_DASH:int = 0x2000;
+        public static const DASH:int = 0x4000;
+        public static const C_RIGHT:int = 0x8000;
+        public static const C_LEFT:int = 0x10000;
+        public static const C_DOWN:int = 0x20000;
+        public static const C_UP:int = 0x40000;
+        public static const JUMP2:int = 0x80000;
+        public static const SHIELD2:int = 0x100000;
+        public static const JUMP3:int = 0x200000;
 
-        public function ControlBits(param1:int = 0)
+        public var bits:int;
+
+        public function ControlBits(_arg_1:int=0)
         {
-            this.bits = param1;
-            return;
-        }// end function
+            this.bits = _arg_1;
+        }
 
-        public function get TAP_JUMP() : Boolean
+        public static function getControls(_arg_1:int, _arg_2:int):int
         {
-            return bits & 1 ? (true) : (false);
-        }// end function
+            return ((_arg_1 | _arg_2) - _arg_2);
+        }
 
-        public function set TAP_JUMP(param1:Boolean) : void
+
+        public function get TAP_JUMP():Boolean
         {
-            bits = param1 ? (bits | 1) : (bits & ~1);
-            return;
-        }// end function
+            return ((bits & 0x01) ? true : false);
+        }
 
-        public function get SHIELD() : Boolean
+        public function set TAP_JUMP(_arg_1:Boolean):void
         {
-            return bits & 2 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x01) : (bits & (~(0x01))));
+        }
 
-        public function set SHIELD(param1:Boolean) : void
+        public function get SHIELD():Boolean
         {
-            bits = param1 ? (bits | 2) : (bits & ~2);
-            return;
-        }// end function
+            return ((bits & 0x02) ? true : false);
+        }
 
-        public function get TAUNT() : Boolean
+        public function set SHIELD(_arg_1:Boolean):void
         {
-            return bits & 4 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x02) : (bits & (~(0x02))));
+        }
 
-        public function set TAUNT(param1:Boolean) : void
+        public function get TAUNT():Boolean
         {
-            bits = param1 ? (bits | 4) : (bits & ~4);
-            return;
-        }// end function
+            return ((bits & 0x04) ? true : false);
+        }
 
-        public function get START() : Boolean
+        public function set TAUNT(_arg_1:Boolean):void
         {
-            return bits & 8 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x04) : (bits & (~(0x04))));
+        }
 
-        public function set START(param1:Boolean) : void
+        public function get START():Boolean
         {
-            bits = param1 ? (bits | 8) : (bits & ~8);
-            return;
-        }// end function
+            return ((bits & 0x08) ? true : false);
+        }
 
-        public function get GRAB() : Boolean
+        public function set START(_arg_1:Boolean):void
         {
-            return bits & 16 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x08) : (bits & (~(0x08))));
+        }
 
-        public function set GRAB(param1:Boolean) : void
+        public function get GRAB():Boolean
         {
-            bits = param1 ? (bits | 16) : (bits & ~16);
-            return;
-        }// end function
+            return ((bits & 0x10) ? true : false);
+        }
 
-        public function get BUTTON2() : Boolean
+        public function set GRAB(_arg_1:Boolean):void
         {
-            return bits & 32 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x10) : (bits & (~(0x10))));
+        }
 
-        public function set BUTTON2(param1:Boolean) : void
+        public function get BUTTON2():Boolean
         {
-            bits = param1 ? (bits | 32) : (bits & ~32);
-            return;
-        }// end function
+            return ((bits & 0x20) ? true : false);
+        }
 
-        public function get BUTTON1() : Boolean
+        public function set BUTTON2(_arg_1:Boolean):void
         {
-            return bits & 64 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x20) : (bits & (~(0x20))));
+        }
 
-        public function set BUTTON1(param1:Boolean) : void
+        public function get BUTTON1():Boolean
         {
-            bits = param1 ? (bits | 64) : (bits & ~64);
-            return;
-        }// end function
+            return ((bits & 0x40) ? true : false);
+        }
 
-        public function get JUMP() : Boolean
+        public function set BUTTON1(_arg_1:Boolean):void
         {
-            return bits & 128 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x40) : (bits & (~(0x40))));
+        }
 
-        public function set JUMP(param1:Boolean) : void
+        public function get JUMP():Boolean
         {
-            bits = param1 ? (bits | 128) : (bits & ~128);
-            return;
-        }// end function
+            return ((bits & 0x80) ? true : false);
+        }
 
-        public function get RIGHT() : Boolean
+        public function set JUMP(_arg_1:Boolean):void
         {
-            return bits & 256 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x80) : (bits & (~(0x80))));
+        }
 
-        public function set RIGHT(param1:Boolean) : void
+        public function get RIGHT():Boolean
         {
-            bits = param1 ? (bits | 256) : (bits & ~256);
-            return;
-        }// end function
+            return ((bits & 0x0100) ? true : false);
+        }
 
-        public function get LEFT() : Boolean
+        public function set RIGHT(_arg_1:Boolean):void
         {
-            return bits & 512 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x0100) : (bits & (~(0x0100))));
+        }
 
-        public function set LEFT(param1:Boolean) : void
+        public function get LEFT():Boolean
         {
-            bits = param1 ? (bits | 512) : (bits & ~512);
-            return;
-        }// end function
+            return ((bits & 0x0200) ? true : false);
+        }
 
-        public function get DOWN() : Boolean
+        public function set LEFT(_arg_1:Boolean):void
         {
-            return bits & 1024 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x0200) : (bits & (~(0x0200))));
+        }
 
-        public function set DOWN(param1:Boolean) : void
+        public function get DOWN():Boolean
         {
-            bits = param1 ? (bits | 1024) : (bits & ~1024);
-            return;
-        }// end function
+            return ((bits & 0x0400) ? true : false);
+        }
 
-        public function get UP() : Boolean
+        public function set DOWN(_arg_1:Boolean):void
         {
-            return bits & 2048 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x0400) : (bits & (~(0x0400))));
+        }
 
-        public function set UP(param1:Boolean) : void
+        public function get UP():Boolean
         {
-            bits = param1 ? (bits | 2048) : (bits & ~2048);
-            return;
-        }// end function
+            return ((bits & 0x0800) ? true : false);
+        }
 
-        public function get DT_DASH() : Boolean
+        public function set UP(_arg_1:Boolean):void
         {
-            return bits & 4096 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x0800) : (bits & (~(0x0800))));
+        }
 
-        public function set DT_DASH(param1:Boolean) : void
+        public function get DT_DASH():Boolean
         {
-            bits = param1 ? (bits | 4096) : (bits & ~4096);
-            return;
-        }// end function
+            return ((bits & 0x1000) ? true : false);
+        }
 
-        public function get AUTO_DASH() : Boolean
+        public function set DT_DASH(_arg_1:Boolean):void
         {
-            return bits & 8192 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x1000) : (bits & (~(0x1000))));
+        }
 
-        public function set AUTO_DASH(param1:Boolean) : void
+        public function get AUTO_DASH():Boolean
         {
-            bits = param1 ? (bits | 8192) : (bits & ~8192);
-            return;
-        }// end function
+            return ((bits & 0x2000) ? true : false);
+        }
 
-        public function get DASH() : Boolean
+        public function set AUTO_DASH(_arg_1:Boolean):void
         {
-            return bits & 16384 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x2000) : (bits & (~(0x2000))));
+        }
 
-        public function set DASH(param1:Boolean) : void
+        public function get DASH():Boolean
         {
-            bits = param1 ? (bits | 16384) : (bits & ~16384);
-            return;
-        }// end function
+            return ((bits & 0x4000) ? true : false);
+        }
 
-        public function get C_RIGHT() : Boolean
+        public function set DASH(_arg_1:Boolean):void
         {
-            return bits & 32768 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x4000) : (bits & (~(0x4000))));
+        }
 
-        public function set C_RIGHT(param1:Boolean) : void
+        public function get C_RIGHT():Boolean
         {
-            bits = param1 ? (bits | 32768) : (bits & ~32768);
-            return;
-        }// end function
+            return ((bits & 0x8000) ? true : false);
+        }
 
-        public function get C_LEFT() : Boolean
+        public function set C_RIGHT(_arg_1:Boolean):void
         {
-            return bits & 65536 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x8000) : (bits & (~(0x8000))));
+        }
 
-        public function set C_LEFT(param1:Boolean) : void
+        public function get C_LEFT():Boolean
         {
-            bits = param1 ? (bits | 65536) : (bits & ~65536);
-            return;
-        }// end function
+            return ((bits & 0x010000) ? true : false);
+        }
 
-        public function get C_DOWN() : Boolean
+        public function set C_LEFT(_arg_1:Boolean):void
         {
-            return bits & 131072 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x010000) : (bits & (~(0x010000))));
+        }
 
-        public function set C_DOWN(param1:Boolean) : void
+        public function get C_DOWN():Boolean
         {
-            bits = param1 ? (bits | 131072) : (bits & ~131072);
-            return;
-        }// end function
+            return ((bits & 0x020000) ? true : false);
+        }
 
-        public function get C_UP() : Boolean
+        public function set C_DOWN(_arg_1:Boolean):void
         {
-            return bits & 262144 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x020000) : (bits & (~(0x020000))));
+        }
 
-        public function set C_UP(param1:Boolean) : void
+        public function get C_UP():Boolean
         {
-            bits = param1 ? (bits | 262144) : (bits & ~262144);
-            return;
-        }// end function
+            return ((bits & 0x040000) ? true : false);
+        }
 
-        public function get JUMP2() : Boolean
+        public function set C_UP(_arg_1:Boolean):void
         {
-            return bits & 524288 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x040000) : (bits & (~(0x040000))));
+        }
 
-        public function set JUMP2(param1:Boolean) : void
+        public function get JUMP2():Boolean
         {
-            bits = param1 ? (bits | 524288) : (bits & ~524288);
-            return;
-        }// end function
+            return ((bits & 0x080000) ? true : false);
+        }
 
-        public function get SHIELD2() : Boolean
+        public function set JUMP2(_arg_1:Boolean):void
         {
-            return bits & 1048576 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x080000) : (bits & (~(0x080000))));
+        }
 
-        public function set SHIELD2(param1:Boolean) : void
+        public function get SHIELD2():Boolean
         {
-            bits = param1 ? (bits | 1048576) : (bits & ~1048576);
-            return;
-        }// end function
+            return ((bits & 0x100000) ? true : false);
+        }
 
-        public function get JUMP3() : Boolean
+        public function set SHIELD2(_arg_1:Boolean):void
         {
-            return bits & 2097152 ? (true) : (false);
-        }// end function
+            bits = ((_arg_1) ? (bits | 0x100000) : (bits & (~(0x100000))));
+        }
 
-        public function set JUMP3(param1:Boolean) : void
+        public function get JUMP3():Boolean
         {
-            bits = param1 ? (bits | 2097152) : (bits & ~2097152);
-            return;
-        }// end function
+            return ((bits & 0x200000) ? true : false);
+        }
 
-        public function reset() : void
+        public function set JUMP3(_arg_1:Boolean):void
+        {
+            bits = ((_arg_1) ? (bits | 0x200000) : (bits & (~(0x200000))));
+        }
+
+        public function reset():void
         {
             bits = 0;
-            return;
-        }// end function
+        }
 
-        public function clone() : ControlBits
+        public function clone():ControlBits
         {
-            return new ControlBits(bits);
-        }// end function
+            return (new ControlBits(bits));
+        }
 
-        public static function getControls(param1:int, param2:int) : int
-        {
-            return (param1 | param2) - param2;
-        }// end function
 
     }
-}
+}//package 
+

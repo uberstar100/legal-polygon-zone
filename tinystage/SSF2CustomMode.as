@@ -1,67 +1,68 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2CustomMode extends SSF2BaseAPIObject
+//SSF2CustomMode
+
+package 
+{
+    public class SSF2CustomMode extends SSF2BaseAPIObject 
     {
 
-        public function SSF2CustomMode(param1) : void
+        public function SSF2CustomMode(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2CustomMode";
-        }// end function
+            return ("SSF2CustomMode");
+        }
 
-        final public function getInitialGameSettings()
+        final public function getInitialGameSettings():*
         {
-            return _api.getInitialGameSettings();
-        }// end function
+            return (_api.getInitialGameSettings());
+        }
 
-        public function getModeSettings() : Object
+        public function getModeSettings():Object
         {
-            return _api.getModeSettings();
-        }// end function
+            return (_api.getModeSettings());
+        }
 
-        public function getStageClass() : Class
+        public function getStageClass():Class
         {
-            return null;
-        }// end function
+            return (null);
+        }
 
-        public function getStageMC() : Class
+        public function getStageMC():Class
         {
-            return null;
-        }// end function
+            return (null);
+        }
 
-        public function handleMatchComplete() : void
+        public function handleMatchComplete():void
         {
-            return;
-        }// end function
+        }
 
-        public function getSummary() : String
+        public function getSummary():String
         {
-            return _api.getSummary();
-        }// end function
+            return (_api.getSummary());
+        }
 
-        final public function startMatch(param1) : void
+        final public function startMatch(_arg_1:*):void
         {
-            _api.startMatch(param1);
-            return;
-        }// end function
+            _api.startMatch(_arg_1);
+        }
 
-        final public function saveModeData(param1:Object) : Boolean
+        final public function saveModeData(_arg_1:Object):Boolean
         {
-            return _api.saveModeData(param1);
-        }// end function
+            return (_api.saveModeData(_arg_1));
+        }
 
-        final public function endMode(param1:Object) : void
+        final public function endMode(_arg_1:Object):void
         {
-            _api.endMode(param1);
-            return;
-        }// end function
+            _api.endMode(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

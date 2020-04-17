@@ -1,90 +1,88 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Projectile extends SSF2GameObject
+//SSF2Projectile
+
+package 
+{
+    public class SSF2Projectile extends SSF2GameObject 
     {
 
-        public function SSF2Projectile(param1) : void
+        public function SSF2Projectile(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Projectile";
-        }// end function
+            return ("SSF2Projectile");
+        }
 
-        override public function inState(param1:uint) : Boolean
+        override public function inState(_arg_1:uint):Boolean
         {
             if (isDisposed())
             {
-                SSF2API.print("Warning: API attempted to check inState(PState." + PState.toString(param1) + ") after object has been disposed!");
-                return param1 === 1;
-            }
-            return super.inState(param1);
-        }// end function
+                SSF2API.print((("Warning: API attempted to check inState(PState." + PState.toString(_arg_1)) + ") after object has been disposed!"));
+                return (_arg_1 === 1);
+            };
+            return (super.inState(_arg_1));
+        }
 
-        override public function setState(param1:uint) : void
+        override public function setState(_arg_1:uint):void
         {
-            if (param1 === 1)
+            if ((_arg_1 === 1))
             {
                 SSF2API.print("Warning: Cannot explicitly set SSF2Projectile to DEAD state. Please use destroy() method instead.");
-            }
-            super.setState(param1);
-            return;
-        }// end function
+            };
+            super.setState(_arg_1);
+        }
 
-        public function angleControl(param1:Number, param2:Number) : void
+        public function angleControl(_arg_1:Number, _arg_2:Number):void
         {
-            _api.angleControl(param1, param2);
-            return;
-        }// end function
+            _api.angleControl(_arg_1, _arg_2);
+        }
 
-        public function destroy(param1 = null) : void
+        public function destroy(_arg_1:*=null):void
         {
-            _api.destroy(param1);
-            return;
-        }// end function
+            _api.destroy(_arg_1);
+        }
 
-        public function endControl() : void
+        public function endControl():void
         {
             _api.endControl();
-            return;
-        }// end function
+        }
 
-        public function exportStats() : Object
+        public function exportStats():Object
         {
-            return _api.exportStats();
-        }// end function
+            return (_api.exportStats());
+        }
 
-        public function getProjectileStat(param1:String)
+        public function getProjectileStat(_arg_1:String):*
         {
-            return _api.getProjectileStat(param1);
-        }// end function
+            return (_api.getProjectileStat(_arg_1));
+        }
 
-        public function isReversed() : Boolean
+        public function isReversed():Boolean
         {
-            return _api.isReversed();
-        }// end function
+            return (_api.isReversed());
+        }
 
-        public function updateProjectileStats(param1:Object) : void
+        public function updateProjectileStats(_arg_1:Object):void
         {
-            _api.updateProjectileStats(param1);
-            return;
-        }// end function
+            _api.updateProjectileStats(_arg_1);
+        }
 
-        public function getOwner()
+        public function getOwner():*
         {
-            return _api.getOwner();
-        }// end function
+            return (_api.getOwner());
+        }
 
-        public function setOwner(param1) : void
+        public function setOwner(_arg_1:*):void
         {
-            _api.setOwner(param1);
-            return;
-        }// end function
+            _api.setOwner(_arg_1);
+        }
+
 
     }
-}
+}//package 
+

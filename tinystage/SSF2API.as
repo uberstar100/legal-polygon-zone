@@ -1,992 +1,986 @@
-﻿package 
-{
-    import flash.display.*;
-    import flash.geom.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2API extends Object
+//SSF2API
+
+package 
+{
+    import flash.display.MovieClip;
+    import flash.geom.Point;
+    import flash.display.BitmapData;
+
+    public class SSF2API 
     {
-        private static var m_api:Object;
+
         public static const VERSION_MAJOR:int = 0;
         public static const VERSION_MINOR:int = 45;
         public static const VERSION_REVISION:int = 0;
-        public static const BASE_CLASSES:Object = {SSF2GameObject:SSF2GameObject, SSF2Character:SSF2Character, SSF2Enemy:SSF2Enemy, SSF2Item:SSF2Item, SSF2Platform:SSF2Platform, SSF2Projectile:SSF2Projectile, SSF2Stage:SSF2Stage, SSF2Platform:SSF2Platform, SSF2CollisionBoundary:SSF2CollisionBoundary, SSF2Target:SSF2Target, SSF2CustomMatch:SSF2CustomMatch, SSF2CustomMode:SSF2CustomMode, SSF2Camera:SSF2Camera, SSF2GameTimer:SSF2GameTimer, SSF2Beacon:SSF2Beacon};
+        public static const BASE_CLASSES:Object = {
+            "SSF2GameObject":SSF2GameObject,
+            "SSF2Character":SSF2Character,
+            "SSF2Enemy":SSF2Enemy,
+            "SSF2Item":SSF2Item,
+            "SSF2Platform":SSF2Platform,
+            "SSF2Projectile":SSF2Projectile,
+            "SSF2Stage":SSF2Stage,
+            "SSF2Platform":SSF2Platform,
+            "SSF2CollisionBoundary":SSF2CollisionBoundary,
+            "SSF2Target":SSF2Target,
+            "SSF2CustomMatch":SSF2CustomMatch,
+            "SSF2CustomMode":SSF2CustomMode,
+            "SSF2Camera":SSF2Camera,
+            "SSF2GameTimer":SSF2GameTimer,
+            "SSF2Beacon":SSF2Beacon
+        };
 
-        public function SSF2API()
-        {
-            return;
-        }// end function
+        private static var m_api:*;
 
-        public static function init(param1) : Class
+
+        public static function init(_arg_1:*):Class
         {
             if (m_api)
             {
-                return SSF2API;
-            }
-            m_api = param1;
-            return SSF2API;
-        }// end function
+                return (SSF2API);
+            };
+            m_api = _arg_1;
+            return (SSF2API);
+        }
 
-        public static function deinit() : void
+        public static function deinit():void
         {
             m_api = null;
-            return;
-        }// end function
+        }
 
-        public static function signal(param1:int, param2:Object = null) : void
+        public static function signal(_arg_1:int, _arg_2:Object=null):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.signal(param1, param2);
-            return;
-        }// end function
+            };
+            m_api.signal(_arg_1, _arg_2);
+        }
 
-        public static function getAPIVersion() : String
+        public static function getAPIVersion():String
         {
-            return "0.45.0";
-        }// end function
+            return ("0.45.0");
+        }
 
-        public static function print(param1:String) : void
+        public static function print(_arg_1:String):void
         {
-            m_api.print(param1);
-            return;
-        }// end function
+            m_api.print(_arg_1);
+        }
 
-        public static function getProp(param1:String)
+        public static function getProp(_arg_1:String):*
         {
-            return SSF2Asset.instance.getProp(param1);
-        }// end function
+            return (SSF2Asset.instance.getProp(_arg_1));
+        }
 
-        public static function getUID() : int
+        public static function getUID():int
         {
             SSF2API.print("Warning!! SSF2API.getUID() is deprecated. Please use generateUID() instead");
-            return m_api.getUID();
-        }// end function
+            return (m_api.getUID());
+        }
 
-        public static function getCharacter(param1)
+        public static function getCharacter(_arg_1:*):*
         {
-            if (param1 is MovieClip)
+            if ((_arg_1 is MovieClip))
             {
-                SSF2API.MovieClip(param1).stop();
-            }
+                MovieClip(_arg_1).stop();
+            };
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getCharacter(param1);
-        }// end function
+                return (null);
+            };
+            return (m_api.getCharacter(_arg_1));
+        }
 
-        public static function getCharacters() : Array
-        {
-            if (!isReady())
-            {
-                return [];
-            }
-            return m_api.getCharacters();
-        }// end function
-
-        public static function getPlayer(param1)
-        {
-            if (param1 is MovieClip)
-            {
-                SSF2API.MovieClip(param1).stop();
-            }
-            if (!isReady())
-            {
-                return null;
-            }
-            return m_api.getPlayer(param1);
-        }// end function
-
-        public static function getPlayers() : Array
+        public static function getCharacters():Array
         {
             if (!isReady())
             {
-                return [];
-            }
-            return m_api.getPlayers();
-        }// end function
+                return ([]);
+            };
+            return (m_api.getCharacters());
+        }
 
-        public static function getProjectile(param1)
+        public static function getPlayer(_arg_1:*):*
         {
-            if (param1 is MovieClip)
+            if ((_arg_1 is MovieClip))
             {
-                SSF2API.MovieClip(param1).stop();
-            }
+                MovieClip(_arg_1).stop();
+            };
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getProjectile(param1);
-        }// end function
+                return (null);
+            };
+            return (m_api.getPlayer(_arg_1));
+        }
 
-        public static function getProjectiles() : Array
-        {
-            if (!isReady())
-            {
-                return [];
-            }
-            return m_api.getProjectiles();
-        }// end function
-
-        public static function getItem(param1)
-        {
-            if (param1 is MovieClip)
-            {
-                SSF2API.MovieClip(param1).stop();
-            }
-            if (!isReady())
-            {
-                return null;
-            }
-            return m_api.getItem(param1);
-        }// end function
-
-        public static function getItems() : Array
+        public static function getPlayers():Array
         {
             if (!isReady())
             {
-                return [];
-            }
-            return m_api.getItems();
-        }// end function
+                return ([]);
+            };
+            return (m_api.getPlayers());
+        }
 
-        public static function getEnemy(param1)
+        public static function getProjectile(_arg_1:*):*
         {
-            if (param1 is MovieClip)
+            if ((_arg_1 is MovieClip))
             {
-                SSF2API.MovieClip(param1).stop();
-            }
+                MovieClip(_arg_1).stop();
+            };
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getEnemy(param1);
-        }// end function
+                return (null);
+            };
+            return (m_api.getProjectile(_arg_1));
+        }
 
-        public static function getEnemies() : Array
-        {
-            if (!isReady())
-            {
-                return [];
-            }
-            return m_api.getEnemies();
-        }// end function
-
-        public static function getTarget(param1)
-        {
-            if (param1 is MovieClip)
-            {
-                SSF2API.MovieClip(param1).stop();
-            }
-            if (!isReady())
-            {
-                return null;
-            }
-            return m_api.getTarget(param1);
-        }// end function
-
-        public static function getTargets() : Array
+        public static function getProjectiles():Array
         {
             if (!isReady())
             {
-                return [];
-            }
-            return m_api.getTargets();
-        }// end function
+                return ([]);
+            };
+            return (m_api.getProjectiles());
+        }
 
-        public static function getStage()
+        public static function getItem(_arg_1:*):*
+        {
+            if ((_arg_1 is MovieClip))
+            {
+                MovieClip(_arg_1).stop();
+            };
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getItem(_arg_1));
+        }
+
+        public static function getItems():Array
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getStage();
-        }// end function
+                return ([]);
+            };
+            return (m_api.getItems());
+        }
 
-        public static function getCollisionBoundary(param1)
+        public static function getEnemy(_arg_1:*):*
+        {
+            if ((_arg_1 is MovieClip))
+            {
+                MovieClip(_arg_1).stop();
+            };
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getEnemy(_arg_1));
+        }
+
+        public static function getEnemies():Array
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getCollisionBoundary(param1);
-        }// end function
+                return ([]);
+            };
+            return (m_api.getEnemies());
+        }
 
-        public static function getPlatform(param1)
+        public static function getTarget(_arg_1:*):*
+        {
+            if ((_arg_1 is MovieClip))
+            {
+                MovieClip(_arg_1).stop();
+            };
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getTarget(_arg_1));
+        }
+
+        public static function getTargets():Array
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getPlatform(param1);
-        }// end function
+                return ([]);
+            };
+            return (m_api.getTargets());
+        }
 
-        public static function getPlatforms(param1:Object = null) : Array
+        public static function getStage():*
         {
             if (!isReady())
             {
-                return [];
-            }
-            return m_api.getPlatforms(param1);
-        }// end function
+                return (null);
+            };
+            return (m_api.getStage());
+        }
 
-        public static function getPlatformBetweenPoints(param1:Point, param2:Point, param3:Object = null)
+        public static function getCollisionBoundary(_arg_1:*):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getPlatformBetweenPoints(param1, param2, param3);
-        }// end function
+                return (null);
+            };
+            return (m_api.getCollisionBoundary(_arg_1));
+        }
 
-        public static function getCamBounds() : MovieClip
+        public static function getPlatform(_arg_1:*):*
+        {
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getPlatform(_arg_1));
+        }
+
+        public static function getPlatforms(_arg_1:Object=null):Array
+        {
+            if (!isReady())
+            {
+                return ([]);
+            };
+            return (m_api.getPlatforms(_arg_1));
+        }
+
+        public static function getPlatformBetweenPoints(_arg_1:Point, _arg_2:Point, _arg_3:Object=null):*
+        {
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getPlatformBetweenPoints(_arg_1, _arg_2, _arg_3));
+        }
+
+        public static function getCamBounds():MovieClip
         {
             SSF2API.print("Warning!! SSF2API.getCamBounds() is deprecated. Please use SSF2API.getStage().getCameraBounds() instead");
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getCamBounds();
-        }// end function
+                return (null);
+            };
+            return (m_api.getCamBounds());
+        }
 
-        public static function getDeathBounds() : MovieClip
+        public static function getDeathBounds():MovieClip
         {
             SSF2API.print("Warning!! SSF2API.getDeathBounds() is deprecated. Please use SSF2API.getStage().getDeathBounds() instead");
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getDeathBounds();
-        }// end function
+                return (null);
+            };
+            return (m_api.getDeathBounds());
+        }
 
-        public static function hitTestGround(param1:Number, param2:Number, param3:Object = null)
+        public static function hitTestGround(_arg_1:Number, _arg_2:Number, _arg_3:Object=null):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.hitTestGround(param1, param2, param3);
-        }// end function
+                return (null);
+            };
+            return (m_api.hitTestGround(_arg_1, _arg_2, _arg_3));
+        }
 
-        public static function hitTestGroundBetweenPoints(param1:Point, param2:Point, param3:Object = null)
+        public static function hitTestGroundBetweenPoints(_arg_1:Point, _arg_2:Point, _arg_3:Object=null):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.hitTestGroundBetweenPoints(param1, param2, param3);
-        }// end function
+                return (null);
+            };
+            return (m_api.hitTestGroundBetweenPoints(_arg_1, _arg_2, _arg_3));
+        }
 
-        public static function lightFlash(param1:Boolean = true) : void
+        public static function lightFlash(_arg_1:Boolean=true):void
         {
             SSF2API.print("Warning!! SSF2API.lightFlash() is deprecated. Please use SSF2API.getCamera().lightFlash() instead");
             if (!isReady())
             {
                 return;
-            }
-            m_api.lightFlash(param1);
-            return;
-        }// end function
+            };
+            m_api.lightFlash(_arg_1);
+        }
 
-        public static function setCamStageFocus(param1:int) : void
+        public static function setCamStageFocus(_arg_1:int):void
         {
             SSF2API.print("Warning!! SSF2API.setCamStageFocus() is deprecated. Please use SSF2API.getCamera().setCamStageFocus() instead");
             if (!isReady())
             {
                 return;
-            }
-            m_api.setCamStageFocus(param1);
-            return;
-        }// end function
+            };
+            m_api.setCamStageFocus(_arg_1);
+        }
 
-        public static function removeCamStageFocus() : void
+        public static function removeCamStageFocus():void
         {
             SSF2API.print("Warning!! SSF2API.removeCamStageFocus() is deprecated. Please use SSF2API.getCamera().removeCamStageFocus() instead");
             if (!isReady())
             {
                 return;
-            }
+            };
             m_api.removeCamStageFocus();
-            return;
-        }// end function
+        }
 
-        public static function addEventListener(param1:String, param2:Function, param3:Object = null) : void
+        public static function addEventListener(_arg_1:String, _arg_2:Function, _arg_3:Object=null):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.addEventListener(param1, param2, param3);
-            return;
-        }// end function
+            };
+            m_api.addEventListener(_arg_1, _arg_2, _arg_3);
+        }
 
-        public static function hasEventListener(param1:String, param2:Function = null) : Boolean
+        public static function hasEventListener(_arg_1:String, _arg_2:Function=null):Boolean
         {
             if (!isReady())
             {
-                return false;
-            }
-            return m_api.hasEventListener(param1, param2);
-        }// end function
+                return (false);
+            };
+            return (m_api.hasEventListener(_arg_1, _arg_2));
+        }
 
-        public static function removeEventListener(param1:String, param2:Function) : void
+        public static function removeEventListener(_arg_1:String, _arg_2:Function):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.removeEventListener(param1, param2);
-            return;
-        }// end function
+            };
+            m_api.removeEventListener(_arg_1, _arg_2);
+        }
 
-        public static function playSound(param1, param2:Boolean = false) : int
+        public static function playSound(_arg_1:*, _arg_2:Boolean=false):int
         {
-            return m_api.playSound(param1, param2);
-        }// end function
+            return (m_api.playSound(_arg_1, _arg_2));
+        }
 
-        public static function stopSound(param1:int) : void
+        public static function stopSound(_arg_1:int):void
         {
-            m_api.stopSound(param1);
-            return;
-        }// end function
+            m_api.stopSound(_arg_1);
+        }
 
-        public static function playMusic(param1:String, param2:int) : void
+        public static function playMusic(_arg_1:String, _arg_2:int):void
         {
-            m_api.playMusic(param1, param2);
-            return;
-        }// end function
+            m_api.playMusic(_arg_1, _arg_2);
+        }
 
-        public static function stopMusic() : void
+        public static function stopMusic():void
         {
             m_api.stopMusic();
-            return;
-        }// end function
+        }
 
-        public static function getCurrentMusicInfo() : Object
+        public static function getCurrentMusicInfo():Object
         {
-            return m_api.getCurrentMusicInfo();
-        }// end function
+            return (m_api.getCurrentMusicInfo());
+        }
 
-        public static function shakeCamera(param1:int) : void
+        public static function shakeCamera(_arg_1:int):void
         {
             SSF2API.print("Warning!! SSF2API.shakeCamera() is deprecated. Please use SSF2API.getCamera().shake() instead");
             if (!isReady())
             {
                 return;
-            }
-            m_api.shakeCamera(param1);
-            return;
-        }// end function
+            };
+            m_api.shakeCamera(_arg_1);
+        }
 
-        public static function matchGo() : void
+        public static function matchGo():void
         {
             if (!isReady())
             {
                 return;
-            }
+            };
             m_api.matchGo();
-            return;
-        }// end function
+        }
 
-        public static function matchGoComplete() : void
+        public static function matchGoComplete():void
         {
             if (!isReady())
             {
                 return;
-            }
+            };
             m_api.matchGoComplete();
-            return;
-        }// end function
+        }
 
-        public static function random() : Number
+        public static function random():Number
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.random();
-        }// end function
+                return (0);
+            };
+            return (m_api.random());
+        }
 
-        public static function randomInteger(param1:int, param2:int) : int
+        public static function randomInteger(_arg_1:int, _arg_2:int):int
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.randomInteger(param1, param2);
-        }// end function
+                return (0);
+            };
+            return (m_api.randomInteger(_arg_1, _arg_2));
+        }
 
-        public static function safeRandom() : Number
+        public static function safeRandom():Number
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.safeRandom();
-        }// end function
+                return (0);
+            };
+            return (m_api.safeRandom());
+        }
 
-        public static function safeRandomInteger(param1:int, param2:int) : int
+        public static function safeRandomInteger(_arg_1:int, _arg_2:int):int
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.safeRandomInteger(param1, param2);
-        }// end function
+                return (0);
+            };
+            return (m_api.safeRandomInteger(_arg_1, _arg_2));
+        }
 
-        public static function fixBG() : void
+        public static function fixBG():void
         {
             if (!isReady())
             {
                 return;
-            }
+            };
             m_api.fixBG();
-            return;
-        }// end function
+        }
 
-        public static function attachEffect(param1, param2:Object = null) : MovieClip
+        public static function attachEffect(_arg_1:*, _arg_2:Object=null):MovieClip
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.attachEffect(param1, param2);
-        }// end function
+                return (null);
+            };
+            return (m_api.attachEffect(_arg_1, _arg_2));
+        }
 
-        public static function attachEffectOverlay(param1, param2:Object = null) : MovieClip
+        public static function attachEffectOverlay(_arg_1:*, _arg_2:Object=null):MovieClip
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.attachEffectOverlay(param1, param2);
-        }// end function
+                return (null);
+            };
+            return (m_api.attachEffectOverlay(_arg_1, _arg_2));
+        }
 
-        public static function calculateChargeDamage(param1:Object) : Number
+        public static function calculateChargeDamage(_arg_1:Object):Number
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.calculateChargeDamage(param1);
-        }// end function
+                return (0);
+            };
+            return (m_api.calculateChargeDamage(_arg_1));
+        }
 
-        public static function calculateKnockback(param1:Number, param2:Number, param3:Number, param4:Number, param5:Number, param6:Number, param7:Boolean) : Number
+        public static function calculateKnockback(_arg_1:Number, _arg_2:Number, _arg_3:Number, _arg_4:Number, _arg_5:Number, _arg_6:Number, _arg_7:Boolean):Number
         {
-            return m_api.calculateKnockback(param1, param2, param3, param4, param5, param6, param7);
-        }// end function
+            return (m_api.calculateKnockback(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7));
+        }
 
-        public static function calculateKnockbackVelocity(param1:Number) : Number
+        public static function calculateKnockbackVelocity(_arg_1:Number):Number
         {
-            return m_api.calculateKnockbackVelocity(param1);
-        }// end function
+            return (m_api.calculateKnockbackVelocity(_arg_1));
+        }
 
-        public static function getTimestamp() : Date
-        {
-            if (!isReady())
-            {
-                return null;
-            }
-            return m_api.getTimestamp();
-        }// end function
-
-        public static function getElapsedFrames() : int
+        public static function getTimestamp():Date
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.getElapsedFrames();
-        }// end function
+                return (null);
+            };
+            return (m_api.getTimestamp());
+        }
 
-        public static function isHazardsOn() : Boolean
+        public static function getElapsedFrames():int
         {
             if (!isReady())
             {
-                return false;
-            }
-            return m_api.isHazardsOn();
-        }// end function
+                return (0);
+            };
+            return (m_api.getElapsedFrames());
+        }
 
-        public static function generateItem(param1:String, param2:Number, param3:Number, param4:Boolean = false)
+        public static function isHazardsOn():Boolean
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.generateItem(param1, param2, param3, param4);
-        }// end function
+                return (false);
+            };
+            return (m_api.isHazardsOn());
+        }
 
-        public static function getRandomAssist() : Class
+        public static function generateItem(_arg_1:String, _arg_2:Number, _arg_3:Number, _arg_4:Boolean=false):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getRandomAssist();
-        }// end function
+                return (null);
+            };
+            return (m_api.generateItem(_arg_1, _arg_2, _arg_3, _arg_4));
+        }
 
-        public static function getRandomPokemon() : Class
+        public static function getRandomAssist():Class
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getRandomPokemon();
-        }// end function
+                return (null);
+            };
+            return (m_api.getRandomAssist());
+        }
 
-        public static function spawnAssist(param1:Class, param2 = null)
+        public static function getRandomPokemon():Class
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.spawnAssist(param1, param2);
-        }// end function
+                return (null);
+            };
+            return (m_api.getRandomPokemon());
+        }
 
-        public static function spawnPokemon(param1:Class, param2 = null)
+        public static function spawnAssist(_arg_1:Class, _arg_2:*=null):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.spawnPokemon(param1, param2);
-        }// end function
+                return (null);
+            };
+            return (m_api.spawnAssist(_arg_1, _arg_2));
+        }
 
-        public static function spawnCharacter(param1:Class)
-        {
-            return m_api.spawnCharacter(param1);
-        }// end function
-
-        public static function spawnEnemy(param1)
-        {
-            return m_api.spawnEnemy(param1);
-        }// end function
-
-        public static function spawnItem(param1:Class)
-        {
-            return m_api.spawnItem(param1);
-        }// end function
-
-        public static function spawnProjectile(param1:Class, param2 = null)
-        {
-            return m_api.spawnProjectile(param1, param2);
-        }// end function
-
-        public static function spawnCollisionBoundary(param1:Class)
+        public static function spawnPokemon(_arg_1:Class, _arg_2:*=null):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.spawnCollisionBoundary(param1);
-        }// end function
+                return (null);
+            };
+            return (m_api.spawnPokemon(_arg_1, _arg_2));
+        }
 
-        public static function spawnPlatform(param1:Class, param2:Boolean = true)
+        public static function spawnCharacter(_arg_1:Class):*
+        {
+            return (m_api.spawnCharacter(_arg_1));
+        }
+
+        public static function spawnEnemy(_arg_1:*):*
+        {
+            return (m_api.spawnEnemy(_arg_1));
+        }
+
+        public static function spawnItem(_arg_1:Class):*
+        {
+            return (m_api.spawnItem(_arg_1));
+        }
+
+        public static function spawnProjectile(_arg_1:Class, _arg_2:*=null):*
+        {
+            return (m_api.spawnProjectile(_arg_1, _arg_2));
+        }
+
+        public static function spawnCollisionBoundary(_arg_1:Class):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.spawnPlatform(param1, param2);
-        }// end function
+                return (null);
+            };
+            return (m_api.spawnCollisionBoundary(_arg_1));
+        }
 
-        public static function isReady() : Boolean
-        {
-            return m_api && m_api.isReady();
-        }// end function
-
-        public static function hitboxTest(param1, param2:uint, param3, param4:uint) : Array
-        {
-            return m_api.hitboxTest(param1, param2, param3, param4);
-        }// end function
-
-        public static function getQualitySettings() : Object
+        public static function spawnPlatform(_arg_1:Class, _arg_2:Boolean=true):*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getQualitySettings();
-        }// end function
+                return (null);
+            };
+            return (m_api.spawnPlatform(_arg_1, _arg_2));
+        }
 
-        public static function currentActiveFinalSmash()
+        public static function isReady():Boolean
+        {
+            return ((m_api) && (m_api.isReady()));
+        }
+
+        public static function hitboxTest(_arg_1:*, _arg_2:uint, _arg_3:*, _arg_4:uint):Array
+        {
+            return (m_api.hitboxTest(_arg_1, _arg_2, _arg_3, _arg_4));
+        }
+
+        public static function getQualitySettings():Object
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.currentActiveFinalSmash();
-        }// end function
+                return (null);
+            };
+            return (m_api.getQualitySettings());
+        }
 
-        public static function getSmashBallInstance()
+        public static function currentActiveFinalSmash():*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getSmashBallInstance();
-        }// end function
+                return (null);
+            };
+            return (m_api.currentActiveFinalSmash());
+        }
 
-        public static function enableSmashBallSpawn(param1:Boolean) : void
+        public static function getSmashBallInstance():*
         {
             if (!isReady())
             {
-                return;
-            }
-            m_api.enableSmashBallSpawn(param1);
-            return;
-        }// end function
+                return (null);
+            };
+            return (m_api.getSmashBallInstance());
+        }
 
-        public static function isSmashBallSpawnEnabled() : Boolean
-        {
-            if (!isReady())
-            {
-                return false;
-            }
-            return m_api.isSmashBallSpawnEnabled();
-        }// end function
-
-        public static function isDebug() : Boolean
-        {
-            if (!isReady())
-            {
-                return false;
-            }
-            return m_api.isDebug();
-        }// end function
-
-        public static function addHUDDetection(param1:MovieClip) : void
+        public static function enableSmashBallSpawn(_arg_1:Boolean):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.addHUDDetection(param1);
-            return;
-        }// end function
+            };
+            m_api.enableSmashBallSpawn(_arg_1);
+        }
 
-        public static function removeHUDDetection(param1:MovieClip) : void
+        public static function isSmashBallSpawnEnabled():Boolean
+        {
+            if (!isReady())
+            {
+                return (false);
+            };
+            return (m_api.isSmashBallSpawnEnabled());
+        }
+
+        public static function isDebug():Boolean
+        {
+            if (!isReady())
+            {
+                return (false);
+            };
+            return (m_api.isDebug());
+        }
+
+        public static function addHUDDetection(_arg_1:MovieClip):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.removeHUDDetection(param1);
-            return;
-        }// end function
+            };
+            m_api.addHUDDetection(_arg_1);
+        }
 
-        public static function addTimedCameraTarget(param1, param2:int) : void
+        public static function removeHUDDetection(_arg_1:MovieClip):void
+        {
+            if (!isReady())
+            {
+                return;
+            };
+            m_api.removeHUDDetection(_arg_1);
+        }
+
+        public static function addTimedCameraTarget(_arg_1:*, _arg_2:int):void
         {
             SSF2API.print("Warning!! SSF2API.addTimedCameraTarget() is deprecated. Please use SSF2API.getCamera().addTimedTarget() instead");
             if (!isReady())
             {
                 return;
-            }
-            m_api.addTimedCameraTarget(param1, param2);
-            return;
-        }// end function
+            };
+            m_api.addTimedCameraTarget(_arg_1, _arg_2);
+        }
 
-        public static function removeTimedCameraTarget(param1) : void
+        public static function removeTimedCameraTarget(_arg_1:*):void
         {
             SSF2API.print("Warning!! SSF2API.removeTimedCameraTarget() is deprecated. Please use SSF2API.getCamera().deleteTimedTarget() instead");
             if (!isReady())
             {
                 return;
-            }
-            m_api.removeTimedCameraTarget(param1);
-            return;
-        }// end function
+            };
+            m_api.removeTimedCameraTarget(_arg_1);
+        }
 
-        public static function hasFeature(param1:uint) : Boolean
+        public static function hasFeature(_arg_1:uint):Boolean
         {
             if (!isReady())
             {
-                return false;
-            }
-            return m_api.hasFeature(param1);
-        }// end function
+                return (false);
+            };
+            return (m_api.hasFeature(_arg_1));
+        }
 
-        public static function getItemFrequency() : int
+        public static function getItemFrequency():int
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.getItemFrequency();
-        }// end function
+                return (0);
+            };
+            return (m_api.getItemFrequency());
+        }
 
-        public static function setItemFrequency(param1:Number) : void
-        {
-            if (!isReady())
-            {
-                return;
-            }
-            m_api.setItemFrequency(param1);
-            return;
-        }// end function
-
-        public static function addCustomItem(param1:Object) : void
+        public static function setItemFrequency(_arg_1:Number):void
         {
             if (!isReady())
             {
                 return;
-            }
-            m_api.addCustomItem(param1);
-            return;
-        }// end function
+            };
+            m_api.setItemFrequency(_arg_1);
+        }
 
-        public static function getAvailableItemList() : Array
+        public static function addCustomItem(_arg_1:Object):void
         {
             if (!isReady())
             {
-                return [];
-            }
-            return m_api.getAvailableItemList();
-        }// end function
+                return;
+            };
+            m_api.addCustomItem(_arg_1);
+        }
 
-        public static function getMatchSettings() : Object
+        public static function getAvailableItemList():Array
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getMatchSettings();
-        }// end function
+                return ([]);
+            };
+            return (m_api.getAvailableItemList());
+        }
 
-        public static function getGameSettings() : Object
+        public static function getMatchSettings():Object
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getGameSettings();
-        }// end function
+                return (null);
+            };
+            return (m_api.getMatchSettings());
+        }
 
-        public static function generateUID() : int
+        public static function getGameSettings():Object
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.generateUID();
-        }// end function
+                return (null);
+            };
+            return (m_api.getGameSettings());
+        }
 
-        public static function getRandomItemSpawnLocation() : Point
+        public static function generateUID():int
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getRandomItemSpawnLocation();
-        }// end function
+                return (0);
+            };
+            return (m_api.generateUID());
+        }
 
-        public static function isFSCutscenePlaying() : Boolean
+        public static function getRandomItemSpawnLocation():Point
         {
             if (!isReady())
             {
-                return false;
-            }
-            return m_api.isFSCutscenePlaying();
-        }// end function
+                return (null);
+            };
+            return (m_api.getRandomItemSpawnLocation());
+        }
 
-        public static function isGameEnded() : Boolean
+        public static function isFSCutscenePlaying():Boolean
         {
             if (!isReady())
             {
-                return false;
-            }
-            return m_api.isGameEnded();
-        }// end function
+                return (false);
+            };
+            return (m_api.isFSCutscenePlaying());
+        }
 
-        public static function getRandomCharacterID(param1:Boolean = true) : String
-        {
-            return m_api.getRandomCharacterID(param1);
-        }// end function
-
-        public static function getRandomStageID(param1:Boolean = true, param2:Boolean = true) : String
-        {
-            return m_api.getRandomStageID(param1, param2);
-        }// end function
-
-        public static function createCustomMatch(param1:Class, param2:SSF2CustomMode, param3:Object) : SSF2CustomMatch
-        {
-            return m_api.createCustomMatch(param1, param2, param3);
-        }// end function
-
-        public static function createCustomMenu(param1:Class)
-        {
-            return m_api.createCustomMenu(param1);
-        }// end function
-
-        public static function endGame(param1:Object = null) : void
-        {
-            m_api.endGame(param1);
-            return;
-        }// end function
-
-        public static function getMCByLinkageName(param1:String) : MovieClip
-        {
-            return m_api.getMCByLinkageName(param1);
-        }// end function
-
-        public static function getCharacterStats(param1:String) : Object
-        {
-            return m_api.getCharacterStats(param1);
-        }// end function
-
-        public static function queueResources(param1:Array) : void
-        {
-            m_api.queueResources(param1);
-            return;
-        }// end function
-
-        public static function loadResources(param1:Object) : void
-        {
-            m_api.loadResources(param1);
-            return;
-        }// end function
-
-        public static function getGameTimer()
-        {
-            return m_api.getGameTimer();
-        }// end function
-
-        public static function getCamera()
-        {
-            return m_api.getCamera();
-        }// end function
-
-        public static function freezeInputs(param1:Boolean) : void
-        {
-            m_api.freezeInputs(param1);
-            return;
-        }// end function
-
-        public static function getItemStatsList(param1:Boolean = true, param2:Boolean = true) : Array
-        {
-            return m_api.getItemStatsList(param1, param2);
-        }// end function
-
-        public static function getRandomItemStats(param1:Boolean = true, param2:Boolean = true) : Object
-        {
-            return m_api.getRandomItemStats(param1, param2);
-        }// end function
-
-        public static function getAverageFPS() : Number
+        public static function isGameEnded():Boolean
         {
             if (!isReady())
             {
-                return 0;
-            }
-            return m_api.getAverageFPS();
-        }// end function
+                return (false);
+            };
+            return (m_api.isGameEnded());
+        }
 
-        public static function setFrameRate(param1:Number) : void
+        public static function getRandomCharacterID(_arg_1:Boolean=true):String
         {
-            m_api.setFrameRate(param1);
-            return;
-        }// end function
+            return (m_api.getRandomCharacterID(_arg_1));
+        }
 
-        public static function getAssistTrophyStatsList(param1:String = "common") : Array
+        public static function getRandomStageID(_arg_1:Boolean=true, _arg_2:Boolean=true):String
         {
-            return m_api.getAssistTrophyStatsList(param1);
-        }// end function
+            return (m_api.getRandomStageID(_arg_1, _arg_2));
+        }
 
-        public static function getPokemonStatsList(param1:String = "common") : Array
+        public static function createCustomMatch(_arg_1:Class, _arg_2:SSF2CustomMode, _arg_3:Object):SSF2CustomMatch
         {
-            return m_api.getPokemonStatsList(param1);
-        }// end function
+            return (m_api.createCustomMatch(_arg_1, _arg_2, _arg_3));
+        }
 
-        public static function getGlobalVar(param1:String)
+        public static function createCustomMenu(_arg_1:Class):*
         {
-            return m_api.getGlobalVar(param1);
-        }// end function
+            return (m_api.createCustomMenu(_arg_1));
+        }
 
-        public static function setGlobalVar(param1:String, param2) : void
+        public static function endGame(_arg_1:Object=null):void
         {
-            m_api.setGlobalVar(param1, param2);
-            return;
-        }// end function
+            m_api.endGame(_arg_1);
+        }
 
-        public static function getSnapshot(param1:Object = null) : BitmapData
+        public static function getMCByLinkageName(_arg_1:String):MovieClip
         {
-            return m_api.getSnapshot(param1);
-        }// end function
+            return (m_api.getMCByLinkageName(_arg_1));
+        }
 
-        public static function getTargetTestSaveData(param1:String, param2:String) : Object
+        public static function getCharacterStats(_arg_1:String):Object
         {
-            return m_api.getTargetTestSaveData(param1, param2);
-        }// end function
+            return (m_api.getCharacterStats(_arg_1));
+        }
 
-        public static function getManifest() : Object
+        public static function queueResources(_arg_1:Array):void
         {
-            return m_api.getManifest();
-        }// end function
+            m_api.queueResources(_arg_1);
+        }
 
-        public static function isGameStarted() : Boolean
+        public static function loadResources(_arg_1:Object):void
+        {
+            m_api.loadResources(_arg_1);
+        }
+
+        public static function getGameTimer():*
+        {
+            return (m_api.getGameTimer());
+        }
+
+        public static function getCamera():*
+        {
+            return (m_api.getCamera());
+        }
+
+        public static function freezeInputs(_arg_1:Boolean):void
+        {
+            m_api.freezeInputs(_arg_1);
+        }
+
+        public static function getItemStatsList(_arg_1:Boolean=true, _arg_2:Boolean=true):Array
+        {
+            return (m_api.getItemStatsList(_arg_1, _arg_2));
+        }
+
+        public static function getRandomItemStats(_arg_1:Boolean=true, _arg_2:Boolean=true):Object
+        {
+            return (m_api.getRandomItemStats(_arg_1, _arg_2));
+        }
+
+        public static function getAverageFPS():Number
         {
             if (!isReady())
             {
-                return false;
-            }
-            return !m_api.isGameStarted();
-        }// end function
+                return (0);
+            };
+            return (m_api.getAverageFPS());
+        }
 
-        public static function getCustomMode()
+        public static function setFrameRate(_arg_1:Number):void
+        {
+            m_api.setFrameRate(_arg_1);
+        }
+
+        public static function getAssistTrophyStatsList(_arg_1:String="common"):Array
+        {
+            return (m_api.getAssistTrophyStatsList(_arg_1));
+        }
+
+        public static function getPokemonStatsList(_arg_1:String="common"):Array
+        {
+            return (m_api.getPokemonStatsList(_arg_1));
+        }
+
+        public static function getGlobalVar(_arg_1:String):*
+        {
+            return (m_api.getGlobalVar(_arg_1));
+        }
+
+        public static function setGlobalVar(_arg_1:String, _arg_2:*):void
+        {
+            m_api.setGlobalVar(_arg_1, _arg_2);
+        }
+
+        public static function getSnapshot(_arg_1:Object=null):BitmapData
+        {
+            return (m_api.getSnapshot(_arg_1));
+        }
+
+        public static function getTargetTestSaveData(_arg_1:String, _arg_2:String):Object
+        {
+            return (m_api.getTargetTestSaveData(_arg_1, _arg_2));
+        }
+
+        public static function getManifest():Object
+        {
+            return (m_api.getManifest());
+        }
+
+        public static function isGameStarted():Boolean
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getCustomMode();
-        }// end function
+                return (false);
+            };
+            return (!(m_api.isGameStarted()));
+        }
 
-        public static function getGameMode() : int
-        {
-            return m_api.getGameMode();
-        }// end function
-
-        public static function getCustomMatch()
+        public static function getCustomMode():*
         {
             if (!isReady())
             {
-                return null;
-            }
-            return m_api.getCustomMatch();
-        }// end function
+                return (null);
+            };
+            return (m_api.getCustomMode());
+        }
 
-        public static function getUnlockableData() : Object
+        public static function getGameMode():int
         {
-            return m_api.getUnlockableData();
-        }// end function
+            return (m_api.getGameMode());
+        }
 
-        public static function triggerUnlock(param1:String) : Boolean
+        public static function getCustomMatch():*
         {
-            return m_api.triggerUnlock(param1);
-        }// end function
+            if (!isReady())
+            {
+                return (null);
+            };
+            return (m_api.getCustomMatch());
+        }
 
-        public static function getCostumeData(param1:String, param2:int, param3:int = -1) : Object
+        public static function getUnlockableData():Object
         {
-            return m_api.getCostumeData(param1, param2, param3);
-        }// end function
+            return (m_api.getUnlockableData());
+        }
 
-        public static function getMetalCostume(param1:String) : Object
+        public static function triggerUnlock(_arg_1:String):Boolean
         {
-            return m_api.getMetalCostume(param1);
-        }// end function
+            return (m_api.triggerUnlock(_arg_1));
+        }
 
-        public static function getWinners() : Array
+        public static function getCostumeData(_arg_1:String, _arg_2:int, _arg_3:int=-1):Object
         {
-            return m_api.getWinners();
-        }// end function
+            return (m_api.getCostumeData(_arg_1, _arg_2, _arg_3));
+        }
 
-        public static function getLosers() : Array
+        public static function getMetalCostume(_arg_1:String):Object
         {
-            return m_api.getLosers();
-        }// end function
+            return (m_api.getMetalCostume(_arg_1));
+        }
+
+        public static function getWinners():Array
+        {
+            return (m_api.getWinners());
+        }
+
+        public static function getLosers():Array
+        {
+            return (m_api.getLosers());
+        }
+
 
     }
-}
+}//package 
+

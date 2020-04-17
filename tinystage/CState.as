@@ -1,8 +1,13 @@
-﻿package 
-{
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class CState extends Object
+//CState
+
+package 
+{
+    public class CState 
     {
+
         public static const IDLE:uint = 0;
         public static const ENTRANCE:uint = 1;
         public static const REVIVAL:uint = 2;
@@ -60,74 +65,76 @@
         public static const DASH_INIT:uint = 54;
         public static const HEAVY_LAND:uint = 55;
         public static const STAMINA_KO:uint = 56;
+
         private static var statesArr:Array = [];
 
-        public function CState()
         {
-            return;
-        }// end function
+            statesArr.push("IDLE");
+            statesArr.push("ENTRANCE");
+            statesArr.push("REVIVAL");
+            statesArr.push("WALK");
+            statesArr.push("RUN");
+            statesArr.push("JUMP_CHAMBER");
+            statesArr.push("JUMP_RISING");
+            statesArr.push("JUMP_FALLING");
+            statesArr.push("LAND");
+            statesArr.push("ATTACKING");
+            statesArr.push("LEDGE_ROLL");
+            statesArr.push("ITEM_TOSS");
+            statesArr.push("CROUCH");
+            statesArr.push("GRABBING");
+            statesArr.push("INJURED");
+            statesArr.push("FLYING");
+            statesArr.push("DODGE_ROLL");
+            statesArr.push("AIR_DODGE");
+            statesArr.push("SIDESTEP_DODGE");
+            statesArr.push("LEDGE_HANG");
+            statesArr.push("LEDGE_CLIMB");
+            statesArr.push("ROLL");
+            statesArr.push("SHIELDING");
+            statesArr.push("STUNNED");
+            statesArr.push("DIZZY");
+            statesArr.push("TUMBLE_FALL");
+            statesArr.push("CRASH_LAND");
+            statesArr.push("CRASH_GETUP");
+            statesArr.push("CARRY");
+            statesArr.push("SWIMMING");
+            statesArr.push("LADDER");
+            statesArr.push("EDGE_LEAN");
+            statesArr.push("WALL_CLING");
+            statesArr.push("FROZEN");
+            statesArr.push("TAUNT");
+            statesArr.push("KIRBY_STAR");
+            statesArr.push("CAUGHT");
+            statesArr.push("STAR_KO");
+            statesArr.push("SCREEN_KO");
+            statesArr.push("PITFALL");
+            statesArr.push("SLEEP");
+            statesArr.push("EGG");
+            statesArr.push("DEAD");
+            statesArr.push("GLIDING");
+            statesArr.push("SKID");
+            statesArr.push("HOVER");
+            statesArr.push("JUMP_MIDAIR_RISING");
+            statesArr.push("DISABLED");
+            statesArr.push("DASH");
+            statesArr.push("TURN");
+            statesArr.push("TECH_GROUND");
+            statesArr.push("TECH_ROLL");
+            statesArr.push("SHIELD_DROP");
+            statesArr.push("BARREL");
+            statesArr.push("DASH_INIT");
+            statesArr.push("HEAVY_LAND");
+            statesArr.push("STAMINA_KO");
+        }
 
-        public static function toString(param1:uint) : String
+
+        public static function toString(_arg_1:uint):String
         {
-            return param1 >= 0 && param1 < statesArr.length ? (statesArr[param1]) : ("null");
-        }// end function
+            return (((_arg_1 >= 0) && (_arg_1 < statesArr.length)) ? statesArr[_arg_1] : "null");
+        }
 
-        statesArr.push("IDLE");
-        statesArr.push("ENTRANCE");
-        statesArr.push("REVIVAL");
-        statesArr.push("WALK");
-        statesArr.push("RUN");
-        statesArr.push("JUMP_CHAMBER");
-        statesArr.push("JUMP_RISING");
-        statesArr.push("JUMP_FALLING");
-        statesArr.push("LAND");
-        statesArr.push("ATTACKING");
-        statesArr.push("LEDGE_ROLL");
-        statesArr.push("ITEM_TOSS");
-        statesArr.push("CROUCH");
-        statesArr.push("GRABBING");
-        statesArr.push("INJURED");
-        statesArr.push("FLYING");
-        statesArr.push("DODGE_ROLL");
-        statesArr.push("AIR_DODGE");
-        statesArr.push("SIDESTEP_DODGE");
-        statesArr.push("LEDGE_HANG");
-        statesArr.push("LEDGE_CLIMB");
-        statesArr.push("ROLL");
-        statesArr.push("SHIELDING");
-        statesArr.push("STUNNED");
-        statesArr.push("DIZZY");
-        statesArr.push("TUMBLE_FALL");
-        statesArr.push("CRASH_LAND");
-        statesArr.push("CRASH_GETUP");
-        statesArr.push("CARRY");
-        statesArr.push("SWIMMING");
-        statesArr.push("LADDER");
-        statesArr.push("EDGE_LEAN");
-        statesArr.push("WALL_CLING");
-        statesArr.push("FROZEN");
-        statesArr.push("TAUNT");
-        statesArr.push("KIRBY_STAR");
-        statesArr.push("CAUGHT");
-        statesArr.push("STAR_KO");
-        statesArr.push("SCREEN_KO");
-        statesArr.push("PITFALL");
-        statesArr.push("SLEEP");
-        statesArr.push("EGG");
-        statesArr.push("DEAD");
-        statesArr.push("GLIDING");
-        statesArr.push("SKID");
-        statesArr.push("HOVER");
-        statesArr.push("JUMP_MIDAIR_RISING");
-        statesArr.push("DISABLED");
-        statesArr.push("DASH");
-        statesArr.push("TURN");
-        statesArr.push("TECH_GROUND");
-        statesArr.push("TECH_ROLL");
-        statesArr.push("SHIELD_DROP");
-        statesArr.push("BARREL");
-        statesArr.push("DASH_INIT");
-        statesArr.push("HEAVY_LAND");
-        statesArr.push("STAMINA_KO");
+
     }
-}
+}//package 
+

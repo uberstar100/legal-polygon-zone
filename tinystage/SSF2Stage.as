@@ -1,151 +1,153 @@
-﻿package 
-{
-    import SSF2BaseAPIObject.*;
-    import flash.display.*;
-    import flash.geom.*;
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Stage extends SSF2BaseAPIObject
+//SSF2Stage
+
+package 
+{
+    import flash.display.MovieClip;
+    import flash.display.DisplayObject;
+    import flash.geom.Point;
+
+    public class SSF2Stage extends SSF2BaseAPIObject 
     {
 
-        public function SSF2Stage(param1) : void
+        public function SSF2Stage(_arg_1:*):void
         {
-            super(param1);
-            return;
-        }// end function
+            super(_arg_1);
+        }
 
-        override public function getType() : String
+        override public function getType():String
         {
-            return "SSF2Stage";
-        }// end function
+            return ("SSF2Stage");
+        }
 
-        public function getForeground() : MovieClip
+        public function getForeground():MovieClip
         {
-            return _api.getForeground();
-        }// end function
+            return (_api.getForeground());
+        }
 
-        public function getMidground() : MovieClip
+        public function getMidground():MovieClip
         {
-            return _api.getMidground();
-        }// end function
+            return (_api.getMidground());
+        }
 
-        public function getBackground() : MovieClip
+        public function getBackground():MovieClip
         {
-            return _api.getBackground();
-        }// end function
+            return (_api.getBackground());
+        }
 
-        public function getCameraBackgrounds() : Array
+        public function getCameraBackgrounds():Array
         {
-            return _api.getCameraBackgrounds();
-        }// end function
+            return (_api.getCameraBackgrounds());
+        }
 
-        public function getWeatherMC() : MovieClip
+        public function getWeatherMC():MovieClip
         {
-            return _api.getWeatherMC();
-        }// end function
+            return (_api.getWeatherMC());
+        }
 
-        public function getWeatherMaskMC() : MovieClip
+        public function getWeatherMaskMC():MovieClip
         {
-            return _api.getWeatherMaskMC();
-        }// end function
+            return (_api.getWeatherMaskMC());
+        }
 
-        public function getShadowMC() : MovieClip
+        public function getShadowMC():MovieClip
         {
-            return _api.getShadowMC();
-        }// end function
+            return (_api.getShadowMC());
+        }
 
-        public function getShadowMaskMC() : MovieClip
+        public function getShadowMaskMC():MovieClip
         {
-            return _api.getShadowMaskMC();
-        }// end function
+            return (_api.getShadowMaskMC());
+        }
 
-        public function getHUDBackgroundMC() : MovieClip
+        public function getHUDBackgroundMC():MovieClip
         {
-            return _api.getHUDBackgroundMC();
-        }// end function
+            return (_api.getHUDBackgroundMC());
+        }
 
-        public function getHUDForegroundMC() : MovieClip
+        public function getHUDForegroundMC():MovieClip
         {
-            return _api.getHUDForegroundMC();
-        }// end function
+            return (_api.getHUDForegroundMC());
+        }
 
-        public function enableCeilingDeath(param1:Boolean = true) : void
+        public function enableCeilingDeath(_arg_1:Boolean=true):void
         {
-            _api.enableCeilingDeath(param1);
-            return;
-        }// end function
+            _api.enableCeilingDeath(_arg_1);
+        }
 
-        public function enableFallDeath(param1:Boolean = true) : void
+        public function enableFallDeath(_arg_1:Boolean=true):void
         {
-            _api.enableFallDeath(param1);
-            return;
-        }// end function
+            _api.enableFallDeath(_arg_1);
+        }
 
-        public function isCeilingDeathEnabled() : Boolean
+        public function isCeilingDeathEnabled():Boolean
         {
-            return _api.isCeilingDeathEnabled();
-        }// end function
+            return (_api.isCeilingDeathEnabled());
+        }
 
-        public function isFallDeathEnabled() : Boolean
+        public function isFallDeathEnabled():Boolean
         {
-            return _api.isFallDeathEnabled();
-        }// end function
+            return (_api.isFallDeathEnabled());
+        }
 
-        public function createTimer(param1:int, param2:int, param3:Function, param4:Object = null) : void
+        public function createTimer(_arg_1:int, _arg_2:int, _arg_3:Function, _arg_4:Object=null):void
         {
-            _api.createTimer(param1, param2, param3, param4);
-            return;
-        }// end function
+            _api.createTimer(_arg_1, _arg_2, _arg_3, _arg_4);
+        }
 
-        public function destroyTimer(param1:Function) : void
+        public function destroyTimer(_arg_1:Function):void
         {
-            _api.destroyTimer(param1);
-            return;
-        }// end function
+            _api.destroyTimer(_arg_1);
+        }
 
-        public function toLocalPoint(param1:DisplayObject) : Point
+        public function toLocalPoint(_arg_1:DisplayObject):Point
         {
-            return _api.toLocalPoint(param1);
-        }// end function
+            return (_api.toLocalPoint(_arg_1));
+        }
 
-        public function getStartingPositionMCs() : Array
+        public function getStartingPositionMCs():Array
         {
-            return _api.getStartingPositionMCs();
-        }// end function
+            return (_api.getStartingPositionMCs());
+        }
 
-        public function getSpawnPositionMCs() : Array
+        public function getSpawnPositionMCs():Array
         {
-            return _api.getSpawnPositionMCs();
-        }// end function
+            return (_api.getSpawnPositionMCs());
+        }
 
-        public function getLightSourceMC() : MovieClip
+        public function getLightSourceMC():MovieClip
         {
-            return _api.getLightSourceMC();
-        }// end function
+            return (_api.getLightSourceMC());
+        }
 
-        public function getLedges() : Array
+        public function getLedges():Array
         {
-            return _api.getLedges();
-        }// end function
+            return (_api.getLedges());
+        }
 
-        public function getCameraBounds() : MovieClip
+        public function getCameraBounds():MovieClip
         {
-            return _api.getCameraBounds();
-        }// end function
+            return (_api.getCameraBounds());
+        }
 
-        public function getDeathBounds() : MovieClip
+        public function getDeathBounds():MovieClip
         {
-            return _api.getDeathBounds();
-        }// end function
+            return (_api.getDeathBounds());
+        }
 
-        public function getSmashBallBounds() : MovieClip
+        public function getSmashBallBounds():MovieClip
         {
-            return _api.getSmashBallBounds();
-        }// end function
+            return (_api.getSmashBallBounds());
+        }
 
-        public function getItemSpawnBoundsList() : Array
+        public function getItemSpawnBoundsList():Array
         {
-            return _api.getItemSpawnBoundsList();
-        }// end function
+            return (_api.getItemSpawnBoundsList());
+        }
+
 
     }
-}
+}//package 
+

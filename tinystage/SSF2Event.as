@@ -1,8 +1,13 @@
-﻿package 
-{
+﻿// Decompiled by AS3 Sorcerer 6.20
+// www.as3sorcerer.com
 
-    public class SSF2Event extends Object
+//SSF2Event
+
+package 
+{
+    public class SSF2Event 
     {
+
         public static const GAME_TICK_START:String = "gameTickStart";
         public static const GAME_TICK_END:String = "gameTickEnd";
         public static const GAME_ITEM_CREATED:String = "gameItemCreated";
@@ -66,10 +71,7 @@
         public static const REVERSE:String = "reverse";
         public static const REVERSE_HIT:String = "reverseHit";
 
-        public function SSF2Event()
-        {
-            return;
-        }// end function
 
     }
-}
+}//package 
+
