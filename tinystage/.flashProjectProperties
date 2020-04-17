@@ -1,0 +1,72 @@
+﻿<projectDescription>
+	<id>1238637846607</id>
+	<name>~tinystage</name>
+	<asVersion>0</asVersion>
+	<boundTemplate>file:///C|/Users/Hussam/AppData/Local/Adobe/Flash CS4/en/Configuration/Project/templates/boundClass_as3.as</boundTemplate>
+	<classTemplate>file:///C|/Users/Hussam/AppData/Local/Adobe/Flash CS4/en/Configuration/Project/templates/standardClass_as3.as</classTemplate>
+	<classPath>.</classPath>
+	<rootURI>C:\Users\Hussam\AppData\Local\Temp\4</rootURI>
+	<flexSDK/>
+	<sources editable="false"/>
+	<libraries editable="false"/>
+	<externalLibraries editable="false"/>
+	<compileList editable="false">
+		<uri label="~tinystage.fla">file:///C|/Users/Hussam/AppData/Local/Temp/4/~tinystage.fla</uri>
+	</compileList>
+	<defaultApp>file:///C|/Users/Hussam/AppData/Local/Temp/4/~tinystage.fla</defaultApp>
+	<recentFiles editable="false">
+		<uri label="SSF2API.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2API.as</uri>
+		<uri label="SSF2BaseAPIObject.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2BaseAPIObject.as</uri>
+		<uri label="ItemSettings.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/ItemSettings.as</uri>
+		<uri label="SSF2Event.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Event.as</uri>
+		<uri label="SSF2StageQuality.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2StageQuality.as</uri>
+		<uri label="SSF2Utils.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Utils.as</uri>
+		<uri label="IState.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/IState.as</uri>
+		<uri label="EState.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/EState.as</uri>
+		<uri label="TState.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/TState.as</uri>
+		<uri label="PState.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/PState.as</uri>
+		<uri label="CState.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/CState.as</uri>
+		<uri label="ControlBits.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/ControlBits.as</uri>
+		<uri label="SSF2CustomMenu.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2CustomMenu.as</uri>
+		<uri label="SSF2Stage.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Stage.as</uri>
+		<uri label="SSF2CustomMode.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2CustomMode.as</uri>
+		<uri label="SSF2CollisionBoundary.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2CollisionBoundary.as</uri>
+		<uri label="SSF2CustomMatch.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2CustomMatch.as</uri>
+		<uri label="SSF2GameObject.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2GameObject.as</uri>
+		<uri label="SSF2GameTimer.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2GameTimer.as</uri>
+		<uri label="SSF2Camera.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Camera.as</uri>
+		<uri label="tinystage.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage.as</uri>
+		<uri label="SSF2Platform.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Platform.as</uri>
+		<uri label="SSF2Item.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Item.as</uri>
+		<uri label="SSF2Enemy.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Enemy.as</uri>
+		<uri label="SSF2Target.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Target.as</uri>
+		<uri label="SSF2Beacon.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Beacon.as</uri>
+		<uri label="SSF2Projectile.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Projectile.as</uri>
+		<uri label="SSF2Character.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Character.as</uri>
+		<uri label="stage_tinystage.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/stage_tinystage.as</uri>
+		<uri label="tinystage_bg.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_bg.as</uri>
+		<uri label="boundary_clip_20.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/boundary_clip_20.as</uri>
+		<uri label="itemGen_mc_19.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/itemGen_mc_19.as</uri>
+		<uri label="ledge_mc_left__7.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/ledge_mc_left__7.as</uri>
+		<uri label="ledge_mc_right__8.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/ledge_mc_right__8.as</uri>
+		<uri label="light_source_mc_17.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/light_source_mc_17.as</uri>
+		<uri label="p1_Spawn_10.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p1_Spawn_10.as</uri>
+		<uri label="p1_Start_9.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p1_Start_9.as</uri>
+		<uri label="p2_Spawn_12.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p2_Spawn_12.as</uri>
+		<uri label="p2_Start_11.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p2_Start_11.as</uri>
+		<uri label="p3_Spawn_14.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p3_Spawn_14.as</uri>
+		<uri label="p3_Start_13.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p3_Start_13.as</uri>
+		<uri label="p4_Spawn_16.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p4_Spawn_16.as</uri>
+		<uri label="p4_Start_15.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/p4_Start_15.as</uri>
+		<uri label="shadowMask_26.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/shadowMask_26.as</uri>
+		<uri label="terrainGround_platform__18.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/terrainGround_platform__18.as</uri>
+		<uri label="waitingroom_terrain_mc_6.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/waitingroom_terrain_mc_6.as</uri>
+		<uri label="warningbounds_ll_21.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/warningbounds_ll_21.as</uri>
+		<uri label="warningbounds_lr_22.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/warningbounds_lr_22.as</uri>
+		<uri label="warningbounds_ul_23.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/warningbounds_ul_23.as</uri>
+		<uri label="warningbounds_ur_24.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/tinystage_fla/warningbounds_ur_24.as</uri>
+		<uri label="SSF2Asset.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/SSF2Asset.as</uri>
+		<uri label="Main.as">file:///C|/Users/Hussam/AppData/Local/Temp/4/Main.as</uri>
+	</recentFiles>
+	<locations editable="false"/>
+</projectDescription>
